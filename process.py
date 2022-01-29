@@ -90,6 +90,158 @@ class TrialData:
     punishments: Dict[str, Punishment]
     charges: List[Charge]
 
+def parse_trial_tag(trial_tag) -> TrialData:
+    # Trial date is in it's own tag
+    date_tag = trial_tag.find("interp", type="date", recursive=False)
+    date = datetime.strptime(date_tag["value"], "%Y%m%d").date()
+
+    # Trial ID is in the top-level tag
+    id = trial_tag["id"]
+
+    # Find the people we care about (we ignore witnesses)
+    defendant_tags = trial_tag.find_all("persname", type="defendantName")
+    victim_tags = trial_tag.find_all("persname", type="victimName")
+
+    # Create mappings of ID -> Person
+    persons = {}
+    defendants = {}
+    victims = {}
+    for p in defendant_tags + victim_tags:
+        id = p["id"]
+
+        gender_tag = p.find("interp", inst=id, type="gender")
+        gender = normalize_text_titlecase(gender_tag["value"]) if gender_tag else None
+
+        age_tag = p.find("interp", inst=id, type="age")
+        age = int(age_tag["value"]) if age_tag else None
+
+        persons[id] = Person(
+            id=id,
+            name=normalize_text_titlecase(p.getText()),
+            gender=gender,
+            age=age
+        )
+
+        if p in defendant_tags:
+            defendants[id] = persons[id]
+        elif p in victim_tags:
+            victims[id] = persons[id]
+
+    # Create a set of Offences that have been committed against some Victims
+    offence_tags = trial_tag.find_all("rs", type="offenceDescription")
+    # Victim join = space-separated list of (offence IDs), (victim IDs)
+    victim_join_tags = trial_tag.find_all("join", result="offenceVictim")
+    victim_joins = [vjt["targets"].split() for vjt in victim_join_tags]
+    offences = {}
+    for o in offence_tags:
+        id = o["id"]
+
+        category_tag = o.find("interp", inst=id, type="offenceCategory")
+        category = category_tag["value"]
+
+        subcategory_tag = o.find("interp", inst=id, type="offenceSubcategory")
+        subcategory = subcategory_tag["value"] if subcategory_tag else None
+
+        offence_victims = []
+        for victim_join in victim_joins:
+            if id not in victim_join:
+                # This join is not join-ing this offence
+                continue
+            # Count every ID-d person in this join as a victim
+            # TODO - Check if the victim_joins have any other people not designated as "victim"?
+            offence_victims += [victims[v_id] for v_id in victim_join if v_id in victims]
+
+        offences[id] = Offence(
+            id=id,
+            category=category,
+            subcategory=subcategory,
+            victims=offence_victims
+        )
+
+    # Create the set of Verdicts
+    verdict_tags = trial_tag.find_all("rs", type="verdictDescription")
+    verdicts = {}
+    for v in verdict_tags:
+        id = v["id"]
+
+        category_tag = v.find("interp", inst=id, type="verdictCategory")
+        category = category_tag["value"]
+
+        subcategory_tag = v.find("interp", inst=id, type="verdictSubcategory")
+        subcategory = subcategory_tag["value"] if subcategory_tag else None
+
+        verdicts[id] = Verdict(
+            id=id,
+            category=category,
+            subcategory=subcategory
+        )
+    
+    # Create the set of Punishments applied to some Defendants
+    punishment_tags = trial_tag.find_all("rs", type="punishmentDescription")
+    # Defendant Punishment join = space-separated list of (defendant IDs), (punishment IDs)
+    punish_join_tags = trial_tag.find_all("join", result="defendantPunishment")
+    punish_joins = [pjt["targets"].split() for pjt in punish_join_tags]
+    punishments = {}
+    for p in punishment_tags:
+        id = p["id"]
+
+        category_tag = p.find("interp", inst=id, type="punishmentCategory")
+        category = category_tag["value"]
+
+        subcategory_tag = p.find("interp", inst=id, type="punishmentSubcategory")
+        subcategory = subcategory_tag["value"] if subcategory_tag else None
+
+        description = normalize_text_titlecase(p.getText())
+
+        punish_defendants = []
+        for punish_join in punish_joins:
+            if id not in punish_join:
+                # This join is not join-ing this punishment
+                continue
+            # Count every ID-d person in this join as a defendant
+            # TODO - Check if the punish_joins have any other people not designated as "defendant"?
+            punish_defendants += [persons[d_id] for d_id in punish_join if d_id in persons]
+
+        punishments[id] = Punishment(
+            id=id,
+            category=category,
+            subcategory=subcategory,
+            description=description,
+            defendants=punish_defendants
+        )
+
+    # Create the set of Charges:
+    #   the Verdict of whether some Defendants committed some Offences
+    # Defendant-Offence-Verdict join = space-separated list of (defendant IDs), (punishment IDs)
+    charge_join_tags = trial_tag.find_all("join", result="criminalCharge")
+    charge_joins = [cjt["targets"].split() for cjt in charge_join_tags]
+    charges = []
+    for charge_join in charge_joins:
+        charge_verdicts = [verdicts[v_id] for v_id in charge_join if v_id in verdicts]
+        assert len(charge_verdicts) == 1
+
+        charge_defendants = [defendants[p_id] for p_id in charge_join if p_id in defendants]
+        charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
+
+        assert len(charge_verdicts) + len(charge_defendants) + len(charge_offences) == len(charge_join)
+
+        charges.append(Charge(
+            charge_defendants,
+            charge_offences,
+            charge_verdicts[0]
+        ))
+
+    return TrialData(
+        date=date,
+        id=id,
+        
+        defendants=defendants,
+        victims=victims,
+        offences=offences,
+        verdicts=verdicts,
+        punishments=punishments,
+        charges=charges
+    )
 
 def parse_xml(xml_path: Path) -> List[TrialData]:
     # Get BeautifulSoup for file
@@ -100,158 +252,11 @@ def parse_xml(xml_path: Path) -> List[TrialData]:
     trial_tags = [x for x in soup.find_all("div1") if x["type"] == "trialAccount"]
     trial_datas = []
     for trial_tag in trial_tags:
-        # Trial date is in it's own tag
-        date_tag = trial_tag.find("interp", type="date", recursive=False)
-        date = datetime.strptime(date_tag["value"], "%Y%m%d").date()
-
-        # Trial ID is in the top-level tag
-        id = trial_tag["id"]
-
-        # Find the people we care about (we ignore witnesses)
-        defendant_tags = trial_tag.find_all("persname", type="defendantName")
-        victim_tags = trial_tag.find_all("persname", type="victimName")
-
-        # Create mappings of ID -> Person
-        persons = {}
-        defendants = {}
-        victims = {}
-        for p in defendant_tags + victim_tags:
-            id = p["id"]
-
-            gender_tag = p.find("interp", inst=id, type="gender")
-            gender = normalize_text_titlecase(gender_tag["value"]) if gender_tag else None
-
-            age_tag = p.find("interp", inst=id, type="age")
-            age = int(age_tag["value"]) if age_tag else None
-
-            persons[id] = Person(
-                id=id,
-                name=normalize_text_titlecase(p.getText()),
-                gender=gender,
-                age=age
-            )
-
-            if p in defendant_tags:
-                defendants[id] = persons[id]
-            elif p in victim_tags:
-                victims[id] = persons[id]
-
-        # Create a set of Offences that have been committed against some Victims
-        offence_tags = trial_tag.find_all("rs", type="offenceDescription")
-        # Victim join = space-separated list of (offence IDs), (victim IDs)
-        victim_join_tags = trial_tag.find_all("join", result="offenceVictim")
-        victim_joins = [vjt["targets"].split() for vjt in victim_join_tags]
-        offences = {}
-        for o in offence_tags:
-            id = o["id"]
-
-            category_tag = o.find("interp", inst=id, type="offenceCategory")
-            category = category_tag["value"]
-
-            subcategory_tag = o.find("interp", inst=id, type="offenceSubcategory")
-            subcategory = subcategory_tag["value"] if subcategory_tag else None
-
-            offence_victims = []
-            for victim_join in victim_joins:
-                if id not in victim_join:
-                    # This join is not join-ing this offence
-                    continue
-                # Count every ID-d person in this join as a victim
-                # TODO - Check if the victim_joins have any other people not designated as "victim"?
-                offence_victims += [victims[v_id] for v_id in victim_join if v_id in victims]
-
-            offences[id] = Offence(
-                id=id,
-                category=category,
-                subcategory=subcategory,
-                victims=offence_victims
-            )
-
-        # Create the set of Verdicts
-        verdict_tags = trial_tag.find_all("rs", type="verdictDescription")
-        verdicts = {}
-        for v in verdict_tags:
-            id = v["id"]
-
-            category_tag = v.find("interp", inst=id, type="verdictCategory")
-            category = category_tag["value"]
-
-            subcategory_tag = v.find("interp", inst=id, type="verdictSubcategory")
-            subcategory = subcategory_tag["value"] if subcategory_tag else None
-
-            verdicts[id] = Verdict(
-                id=id,
-                category=category,
-                subcategory=subcategory
-            )
-        
-        # Create the set of Punishments applied to some Defendants
-        punishment_tags = trial_tag.find_all("rs", type="punishmentDescription")
-        # Defendant Punishment join = space-separated list of (defendant IDs), (punishment IDs)
-        punish_join_tags = trial_tag.find_all("join", result="defendantPunishment")
-        punish_joins = [pjt["targets"].split() for pjt in punish_join_tags]
-        punishments = {}
-        for p in punishment_tags:
-            id = p["id"]
-
-            category_tag = p.find("interp", inst=id, type="punishmentCategory")
-            category = category_tag["value"]
-
-            subcategory_tag = p.find("interp", inst=id, type="punishmentSubcategory")
-            subcategory = subcategory_tag["value"] if subcategory_tag else None
-
-            description = normalize_text_titlecase(p.getText())
-
-            punish_defendants = []
-            for punish_join in punish_joins:
-                if id not in punish_join:
-                    # This join is not join-ing this punishment
-                    continue
-                # Count every ID-d person in this join as a defendant
-                # TODO - Check if the punish_joins have any other people not designated as "defendant"?
-                punish_defendants += [persons[d_id] for d_id in punish_join if d_id in persons]
-
-            punishments[id] = Punishment(
-                id=id,
-                category=category,
-                subcategory=subcategory,
-                description=description,
-                defendants=punish_defendants
-            )
-
-        # Create the set of Charges:
-        #   the Verdict of whether some Defendants committed some Offences
-        # Defendant-Offence-Verdict join = space-separated list of (defendant IDs), (punishment IDs)
-        charge_join_tags = trial_tag.find_all("join", result="criminalCharge")
-        charge_joins = [cjt["targets"].split() for cjt in charge_join_tags]
-        charges = []
-        for charge_join in charge_joins:
-            charge_verdicts = [verdicts[v_id] for v_id in charge_join if v_id in verdicts]
-            assert len(charge_verdicts) == 1
-
-            charge_defendants = [defendants[p_id] for p_id in charge_join if p_id in defendants]
-            charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
-
-            assert len(charge_verdicts) + len(charge_defendants) + len(charge_offences) == len(charge_join)
-
-            charges.append(Charge(
-                charge_defendants,
-                charge_offences,
-                charge_verdicts[0]
-            ))
-
         # Add the set of trial datas
-        trial_datas.append(TrialData(
-            date=date,
-            id=id,
-            
-            defendants=defendants,
-            victims=victims,
-            offences=offences,
-            verdicts=verdicts,
-            punishments=punishments,
-            charges=charges
-        ))
+        try:
+            trial_datas.append(parse_trial_tag(trial_tag))
+        except (ValueError, KeyError, AssertionError) as ex:
+            raise RuntimeError(f"Parse error in XML {xml_path}") from ex
 
     return trial_datas
 
