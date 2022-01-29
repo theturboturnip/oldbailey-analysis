@@ -110,12 +110,18 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
     victims = {}
     for p in defendant_tags + victim_tags:
         id = p["id"]
+        if id in persons:
+            raise KeyError(f"Persons {id} already exists, added twice")
 
         gender_tag = p.find("interp", inst=id, type="gender")
         gender = normalize_text_titlecase(gender_tag["value"]) if gender_tag else None
 
         age_tag = p.find("interp", inst=id, type="age")
-        age = int(age_tag["value"]) if age_tag else None
+        try:
+            age = int(age_tag["value"]) if age_tag else None
+        except ValueError:
+            print(f"Trial {trial_id} person {id} has a non-numeric age \"{age_tag['value']}\"")
+            age = None
 
         persons[id] = Person(
             id=id,
@@ -137,6 +143,8 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
     offences = {}
     for o in offence_tags:
         id = o["id"]
+        if id in offences:
+            raise KeyError(f"Offence {id} already exists, added twice")
 
         category_tag = o.find("interp", inst=id, type="offenceCategory")
         category = category_tag["value"]
@@ -165,6 +173,8 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
     verdicts = {}
     for v in verdict_tags:
         id = v["id"]
+        if id in verdicts:
+            raise KeyError(f"Verdict {id} already exists, added twice")
 
         category_tag = v.find("interp", inst=id, type="verdictCategory")
         category = category_tag["value"]
@@ -186,6 +196,8 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
     punishments = {}
     for p in punishment_tags:
         id = p["id"]
+        if id in punishments:
+            raise KeyError(f"Punishment {id} already exists, added twice")
 
         category_tag = p.find("interp", inst=id, type="punishmentCategory")
         category = category_tag["value"]
@@ -224,7 +236,7 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
         if len(charge_verdicts) == 0:
             # Some charge was inconclusive
             # e.g. t18520405-345: an indictment for perjury, which didn't have a valid "verdict"
-            print(f"Trial {trial_id} had a charge with no valid verdict, ignoring...")
+            print(f"Trial {trial_id} had a charge {charge_join} with no valid verdict, ignoring...")
             continue
 
         assert len(charge_verdicts) == 1
@@ -232,13 +244,13 @@ def parse_trial_tag(trial_tag) -> Optional[TrialData]:
         charge_defendants = [defendants[p_id] for p_id in charge_join if p_id in defendants]
         if len(charge_defendants) == 0:
             # Some charge was inconclusive
-            print(f"Trial {trial_id} had a charge with no valid defendant, ignoring...")
+            print(f"Trial {trial_id} had a charge {charge_join} with no valid defendant, ignoring...")
             continue
 
         charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
         if len(charge_offences) == 0:
             # Some charge was inconclusive
-            print(f"Trial {trial_id} had a charge with no valid offence, ignoring...")
+            print(f"Trial {trial_id} had a charge {charge_join} with no valid offence, ignoring...")
             continue
 
         if (len(charge_verdicts) + len(charge_defendants) + len(charge_offences)) != len(charge_join):
