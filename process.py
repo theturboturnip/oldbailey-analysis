@@ -90,13 +90,15 @@ class TrialData:
     punishments: Dict[str, Punishment]
     charges: List[Charge]
 
-def parse_trial_tag(trial_tag) -> TrialData:
+# Returns None if some element is inconclusive
+# e.g. t18520405-345: an indictment for perjury, which didn't have a valid "verdict"
+def parse_trial_tag(trial_tag) -> Optional[TrialData]:
     # Trial date is in it's own tag
     date_tag = trial_tag.find("interp", type="date", recursive=False)
     date = datetime.strptime(date_tag["value"], "%Y%m%d").date()
 
     # Trial ID is in the top-level tag
-    id = trial_tag["id"]
+    trial_id = trial_tag["id"]
 
     # Find the people we care about (we ignore witnesses)
     defendant_tags = trial_tag.find_all("persname", type="defendantName")
@@ -218,12 +220,30 @@ def parse_trial_tag(trial_tag) -> TrialData:
     charges = []
     for charge_join in charge_joins:
         charge_verdicts = [verdicts[v_id] for v_id in charge_join if v_id in verdicts]
+
+        if len(charge_verdicts) == 0:
+            # Some charge was inconclusive
+            # e.g. t18520405-345: an indictment for perjury, which didn't have a valid "verdict"
+            print(f"Trial {trial_id} had a charge with no valid verdict, ignoring...")
+            continue
+
         assert len(charge_verdicts) == 1
 
         charge_defendants = [defendants[p_id] for p_id in charge_join if p_id in defendants]
-        charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
+        if len(charge_defendants) == 0:
+            # Some charge was inconclusive
+            print(f"Trial {trial_id} had a charge with no valid defendant, ignoring...")
+            continue
 
-        assert len(charge_verdicts) + len(charge_defendants) + len(charge_offences) == len(charge_join)
+        charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
+        if len(charge_offences) == 0:
+            # Some charge was inconclusive
+            print(f"Trial {trial_id} had a charge with no valid offence, ignoring...")
+            continue
+
+        if (len(charge_verdicts) + len(charge_defendants) + len(charge_offences)) != len(charge_join):
+            print(charge_defendants, charge_offences, charge_verdicts, charge_join)
+        assert (len(charge_verdicts) + len(charge_defendants) + len(charge_offences)) == len(charge_join)
 
         charges.append(Charge(
             charge_defendants,
@@ -231,9 +251,12 @@ def parse_trial_tag(trial_tag) -> TrialData:
             charge_verdicts[0]
         ))
 
+    if len(charges) == 0:
+        print(f"Trial {trial_id} had no valid charges, ignoring...")
+
     return TrialData(
         date=date,
-        id=id,
+        id=trial_id,
         
         defendants=defendants,
         victims=victims,
