@@ -1,7 +1,7 @@
 import argparse
 import os
 from pathlib import Path
-from typing import List,Optional,Dict
+from typing import DefaultDict, List,Optional,Dict, Set
 import re
 from dataclasses import dataclass
 import dataclasses
@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from multiprocessing import Pool
 from enum import Enum
 import json
+from collections import Counter, defaultdict
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -47,6 +48,7 @@ class Person:
     id: str
     gender: Optional[str]
     age: Optional[int]
+    occupation: Optional[str]
 
 @dataclass
 class Offence:
@@ -127,11 +129,15 @@ def parse_trial_tag(trial_tag, special_correction=True) -> Optional[TrialData]:
             print(f"[warn] Trial {trial_id} person {id} has a non-numeric age \"{age_tag['value']}\"")
             age = None
 
+        occupation_tag = p.find("interp", inst=id, type="occupation")
+        occupation = normalize_text_titlecase(occupation_tag["value"]) if occupation_tag else None
+
         new_person = Person(
             id=id,
             name=normalize_text_titlecase(p.getText()),
             gender=gender,
-            age=age
+            age=age,
+            occupation=occupation,
         )
         if id in persons and new_person != persons[id]:
             print(f"Persons {id} already exists, added twice with different values")
@@ -376,8 +382,7 @@ def main():
     p = argparse.ArgumentParser("process.py", description="Tool for processing Old Bailey data into a spreadsheet")
     p.add_argument("data_xml_folder", type=str)
     # p.add_argument("primary_key", type=str, choices=["defendant","accuser"])
-    p.add_argument("defendant_csv", type=str)
-    p.add_argument("accuser_csv", type=str)
+    p.add_argument("--occupation_csv", type=str)
 
     args = p.parse_args()
 
@@ -396,7 +401,30 @@ def main():
     total = 0
     skipped = 0
     corrected = 0
+    d_occupations_per_year: DefaultDict[int, int] = defaultdict(lambda: 0)
+    occupations: Counter[Optional[str]] = Counter()
     for trials in trials_per_date:
+        # Find the first year in which a defendant gave an occupation
+        trial_year = next(t.date.year for t in trials if t is not None)
+        if trial_year >= 1906:
+            d_occupations_per_year[trial_year] += sum(
+                bool(d.occupation)
+                for t in trials
+                if t is not None
+                for d in t.defendants.values()
+            )
+
+            occupations.update(
+                p.occupation
+                for t in trials if t is not None
+                for p in t.defendants.values() if p is not None
+            )
+            occupations.update(
+                p.occupation
+                for t in trials if t is not None
+                for p in t.victims.values() if p is not None
+            )
+
         for trial in trials:
             total += 1
             if trial is None:
@@ -406,6 +434,17 @@ def main():
 
     print(f"Final Report:\n\tTotal Trials found: {total}\n\tCorrected (see log): {corrected}\n\tSkipped (see log): {skipped}\n\tSuccess(%): {100 - 100*(skipped/total)}")
     # print(trials_per_date[0][0])
+    print(d_occupations_per_year)
+
+    if args.occupation_csv:
+        with open(args.occupation_csv, "w") as f:
+            f.write("Occupation,Occurrences\n")
+            for o, n in occupations.most_common():
+                if not o or o == "No Occupation":
+                    # e.g. o is None, '', etc.
+                    continue
+                f.write(f"{o},{n}\n")
+    # print("\n".join(occupations.most_common()))
 
 if __name__ == '__main__':
     main()

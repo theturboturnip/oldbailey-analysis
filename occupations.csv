@@ -1,0 +1,3033 @@
+Occupation,Occurrences
+Labourer,1251
+Clerk,456
+Carman,297
+Soldier,275
+Porter,270
+Tailor,254
+Servant,231
+Post Office Worker,211
+Dealer,211
+Painter,174
+Agent,165
+Shoemaker,156
+Traveller,154
+Butcher,151
+Carpenter,146
+Seaman,141
+Engineer,140
+Postman,127
+Publican,121
+Baker,116
+Post Office,112
+Policeman,107
+Cook,96
+Merchant,87
+Linen-Draper,86
+Pawnbroker,86
+Bricklayer,81
+Waiter,77
+Police Constable,77
+Sailor,75
+Shopkeeper,72
+Printer,72
+Stoker,71
+Grocer,67
+Cheesemonger,65
+Jeweller,64
+Solicitor,63
+Builder,62
+Coster,62
+Salesman,59
+Barman,59
+Hawker,59
+Farmer,57
+Fitter,55
+Laundress,50
+Charwoman,49
+Manager,48
+Draper,47
+Warehouseman,45
+Bootmaker,44
+Errand-Boy,43
+Gardener,43
+Fireman,43
+Accountant,42
+Tobacconist,39
+Fishmonger,37
+Greengrocer,37
+Police Officer,37
+Coachman,36
+Marine,32
+Cabinet Maker,32
+Lighterman,31
+Hosier,30
+Bookbinder,30
+Steward,30
+Tinsmith,30
+Journalist,29
+Blacksmith,28
+Licensed Victualler,28
+Hairdresser,28
+Commission Agent,27
+Bookseller,26
+Furrier,26
+Plumber,26
+Broker,25
+Newsvendor,25
+Artist,24
+Barber,24
+Upholsterer,23
+Cabinet-Maker,23
+Constable,23
+Groom,23
+Musician,23
+Horsekeeper,23
+Surgeon,22
+Boot And Shoemaker,22
+Shopman,22
+Plasterer,22
+Baronet,22
+Carrier,22
+French Polisher,22
+Police-Constable,22
+Housekeeper,21
+Milkman,21
+Shop Assistant,21
+Ironmonger,21
+Stevedore,21
+Decorator,21
+Machinist,21
+Errand Boy,20
+Confectioner,20
+Dairyman,20
+Employed In The Post Office,20
+Clergyman,19
+Post-Office,19
+Electrician,19
+Factory Hand,19
+Potman,18
+Stationer,18
+Clothier,18
+Costermonger,18
+Watchmaker,18
+Landlord,18
+Doctor,18
+Auxiliary Postman,18
+Canvasser,18
+Flower Seller,18
+Butler,17
+Valet,16
+Auctioneer,16
+General Dealer,16
+Compositor,16
+Coal Porter,16
+Packer,16
+Nurse,15
+Chemist,15
+Keeps A Shop,15
+Contractor,15
+Joiner,15
+Chauffeur,15
+Fruiterer,14
+Coal-Merchant,14
+Domestic Servant,14
+Secretary,14
+Oilman,13
+Railway Worker,13
+Architect,13
+Surveyor,13
+Employed In Post Office,13
+Peace Officer,13
+Commercial Traveller,12
+Footman,12
+Hatter,12
+Linendraper,12
+Mason,12
+Publisher,12
+Stonemason,12
+Dressmaker,12
+Carter,11
+Wheelwright,11
+Apprentice,11
+Ship'S Steward,11
+Cashier,11
+Employed Under The Post Office,11
+Liftman,11
+Smith,10
+Waterman,10
+Potboy,10
+Ironer,10
+Photographer,10
+Stockbroker,10
+Esquire,10
+Sir,10
+Actor,10
+Ship'S Fireman,10
+Reverend,9
+Boot And Shoe Maker,9
+Journeyman,9
+Brewer,9
+Cooper,9
+Squire,9
+Cow-Keeper,9
+Ship'S Master,9
+Railway Employee,9
+Student,9
+Flower-Seller,9
+Housemaid,8
+Ostler,8
+Cab-Driver,8
+Barrister,8
+Keeps A Beer-Shop,8
+Boot-Maker,8
+Coffee-House Keeper,8
+Mariner,8
+Cab Driver,8
+Green-Grocer,8
+Watchman,8
+Milliner,8
+Bailiff,8
+Miller,8
+Beer-Shop Keeper,8
+Lord,8
+Police-Officer,8
+Foreman,8
+Artilleryman,8
+Boot Manufacturer,8
+Employed In Post-Office,8
+Messenger,8
+Cycle Maker,8
+Scaffolder,8
+Tailoress,8
+Sorter,8
+Assistant Postman,8
+Captain,7
+Shipwright,7
+Silk Manufacturer,7
+Saddler,7
+Laundryman,7
+Coal-Whipper,7
+Farrier,7
+Wharfinger,7
+Earl,7
+Cleric,7
+Poulterer,7
+Keeps A Beer Shop,7
+Miner,7
+Wine Merchant,7
+Omnibus Conductor,7
+Able Seaman,7
+Draper'S Assistant,7
+Dock Labourer,7
+Furniture Dealer,7
+Physician,7
+Tutor,7
+Company Director,7
+Horse Keeper,7
+Barmaid,7
+Bookmaker,7
+Gasfitter,7
+Writer,7
+Cellarman,7
+Teacher,7
+Attendant,7
+Paperhanger,7
+None,7
+Coach-Maker,6
+Washerwoman,6
+Milk Carrier,6
+Brass-Founder,6
+Keeps A Public House,6
+Carver And Gilder,6
+Pot-Boy,6
+Washer-Woman,6
+Duke,6
+Char-Woman,6
+Letter Carrier,6
+Eating-House Keeper,6
+Engraver,6
+Collector,6
+Mechanic,6
+Horse-Keeper,6
+Currier,6
+Medical Student,6
+Grocer'S Assistant,6
+Outfitter,6
+Basket Maker,6
+Churchwarden,6
+Cabman,6
+Militiaman,6
+Clerk In Holy Orders,6
+Engine Driver,6
+Bank Employee,6
+Cabdriver,6
+Estate Agent,6
+Billiard Marker,6
+Vocalist,6
+Waitress,6
+Vanguard,6
+Sawyer,5
+Book-Keeper,5
+Silversmith,5
+Journeyman Butcher,5
+Attorney,5
+Corndealer,5
+Schoolmaster,5
+Pork-Butcher,5
+Wine-Merchant,5
+Cutler,5
+Keeps A Lodging House,5
+Coppersmith,5
+Dentist,5
+Coachmaker,5
+Clothes Salesman,5
+Grocer And Cheesemonger,5
+Excavator,5
+Grocer, Cheesemonger,5
+Knight,5
+Wholesale Clothier,5
+Post Office Employee,5
+Carpenter And Builder,5
+Cutter,5
+Sweep,5
+Ship'S Captain,5
+Trimmer,5
+Pork Butcher,5
+Master Of Ship,5
+Needlewoman,5
+Cigar Manufacturer,5
+Queen,5
+Tavern Keeper,5
+Manufacturer,5
+Coal Merchant,5
+Solicitor'S Clerk,5
+Carman, Contractor,5
+Interpreter,5
+Beerhouse Keeper,5
+Employed By Midland Railway Company,5
+Restaurant Keeper,5
+Horse Dealer,5
+Insurance Agent,5
+Provision Dealer,5
+Married Woman,5
+Draughtsman,5
+Glass Blower,5
+Chef,5
+Bus Conductor,5
+Caretaker,5
+Polisher,5
+Florist,5
+Police Inspector,4
+Pensioner,4
+Shoe-Maker,4
+Hair-Dresser,4
+Rope-Maker,4
+Corn-Chandler,4
+Coach Proprietor,4
+Clicker,4
+Brewer'S Servant,4
+Keeps A Clothes Shop,4
+Brush-Maker,4
+Keeps A Coffee-House,4
+Servant Of All Work,4
+Woollen-Draper,4
+Tailor, Draper,4
+Oil And Colourman,4
+Lawyer,4
+Watch-Maker,4
+Turner,4
+Wine And Spirit Merchant,4
+Dyer,4
+Banker,4
+Carver,4
+Viscount,4
+Master Carman,4
+Harness-Maker,4
+Tavern-Keeper,4
+Peace-Officer,4
+Brass Finisher,4
+Customs Officer,4
+Builder'S Foreman,4
+Meat Salesman,4
+Optician,4
+Master Mariner,4
+Employed By Post Office,4
+Civil Engineer,4
+Market Porter,4
+Boarding-House Keeper,4
+Fish Salesman,4
+Newsagent,4
+Dealer In Marine Stores,4
+Forewoman,4
+General Servant,4
+Bank Clerk,4
+Pawnbroker'S Manager,4
+Manager Of Public House,4
+Hotel Keeper,4
+Fireman On Board Ship,4
+Employed In The Post-Office,4
+Jobmaster,4
+Kitchen Porter,4
+House Decorator,4
+Riveter,4
+Midwife,4
+Stickmaker,4
+Company Promoter,4
+Medical Practitioner,4
+Bookkeeper,4
+Caterer,4
+Ship Steward,4
+Financier,4
+Engine Cleaner,4
+Tailor'S Cutter,4
+Tailor'S Presser,4
+Linen Draper,3
+Clothes-Shop Keeper,3
+Shop-Keeper,3
+Goldsmith,3
+Gunner In The Royal Artillery,3
+Mattress-Maker,3
+Market-Gardener,3
+Fisherman,3
+Tea-Dealer,3
+Weaver,3
+Cowkeeper,3
+Beershop Keeper,3
+Servant Out Of Place,3
+Master Of A Ship,3
+Boot Maker,3
+Attorney'S Clerk,3
+Keeps A Broker'S Shop,3
+Town Traveller,3
+Chemist And Druggist,3
+Wagoner,3
+Chandler,3
+Millwright,3
+Brushmaker,3
+Omnibus Driver,3
+Watchmaker And Jeweller,3
+Victualler,3
+Servant To Publican,3
+Apprentice On Boat,3
+Livery-Stable-Keeper,3
+Chair-Maker,3
+Lord Bishop Of London,3
+Mason'S Labourer,3
+Builder'S Labourer,3
+Apprentice On Board Ship,3
+Lodging-House Keeper,3
+Pianoforte-Maker,3
+Coach-Builder,3
+Appraiser,3
+Chimney Sweep,3
+Corn-Dealer,3
+Hosier And Glover,3
+Keep A Shop,3
+Innkeeper,3
+Keep A Beer-Shop,3
+Keep A Beer Shop,3
+Wholesale Stationer,3
+Keeps A Coffee Shop,3
+Marquis Of Hertford,3
+Watch And Clock Maker,3
+Archbishop Of Canterbury,3
+Prime Minister,3
+Merchant'S Clerk,3
+Law Stationer,3
+Painter And Glazier,3
+Engine-Driver,3
+Boatswain,3
+Principal Clerk And Cashier,3
+Wine And Brandy Merchant,3
+Railway Porter,3
+Shirt Maker,3
+Timber Merchant,3
+Lady,3
+Farm Worker,3
+Rag Merchant,3
+Silk Agent,3
+Bank Manager,3
+Coach Painter,3
+Ship'S Cook,3
+Paper-Hanger,3
+Ship'S Mate,3
+Prostitute,3
+Cab Proprietor,3
+Storekeeper,3
+Mate On Ship,3
+Bargeman,3
+Zinc Worker,3
+Reporter,3
+Soldiers,3
+Baron,3
+Bookseller'S Assistant,3
+Corn Merchant,3
+Navvy,3
+Assistant,3
+Major,3
+Lodging House Keeper,3
+Tea Packer,3
+Leather Dresser,3
+Doctor'S Assistant,3
+House Agent,3
+Hammerman,3
+Cleaner,3
+Ice-Cream Vendor,3
+Kitchenmaid,3
+Gas Fitter,3
+Cigarette Maker,3
+Slater,3
+Piano Maker,3
+Jockey,3
+Basketmaker,3
+Printer'S Labourer,3
+Motor Driver,3
+Cabinetmaker,3
+Fish Porter,3
+Glass Beveller,3
+Hatmaker,3
+Wireworker,3
+Provision Merchant,3
+Post Office Sorter,3
+Pugilist,3
+Van Boy,3
+Boot Repairer,3
+Insurance Manager,3
+Correspondent,3
+Car-Man,3
+Wood Chopper,3
+Telegraphist,3
+Dispenser,3
+Motor Engineer,3
+Motor-Driver,3
+Boxmaker,3
+Advertising Agent,3
+Auxiliary Postman And Boot Repairer,3
+Bath Attendant,3
+Count,2
+Hotelier,2
+Clothes Shop Keeper,2
+Boot And Shoe-Maker,2
+Potter,2
+Shopman For Clothes-Salesman,2
+Shop-Foreman,2
+Servant To Tailor,2
+Servant Jewllery Setter,2
+Tailor And Draper,2
+Inn-Keeper,2
+Poultere,2
+Keeps Livery-Stables,2
+Carver, Gilder,2
+Seal Engraver,2
+Keeps A Coffee-Shop,2
+Gentleman'S Servant,2
+Chemist, Druggist,2
+Wholesale Grocer,2
+Glazier,2
+Journeyman Baker,2
+Child'S Nurse,2
+Toll-Collector,2
+Lace-Man,2
+Wine-Porter,2
+Keeps The White Bear,2
+Dock Worker,2
+Hackney-Coachman,2
+House-Maid,2
+Journeyman Cooper,2
+Hotel-Keeper,2
+Laceman,2
+Soap Manufacturer,2
+Toy-Dealer,2
+Sale-Shop Keeper,2
+Under Butler,2
+Journeyman Tailor,2
+Stable-Man,2
+Keeps A Public-House,2
+Tin-Plate Worker,2
+Laundry-Man,2
+Haberdasher,2
+Hosier, Glover,2
+Master Shoemaker,2
+Trunk-Maker,2
+Keeps A Shoe Shop,2
+Umbrella Manufacturer,2
+Captain'S Cook,2
+Nursery-Maid,2
+Journeyman Shoemaker,2
+Coal-Porter,2
+Ships Cook,2
+Pawnbroker And Jeweller,2
+Labourer On The Railroad,2
+Hosier, Glover And Out-Fitter,2
+Livery-Stable Keeper,2
+Egg Merchant,2
+Carriage Washer,2
+Keeps A China Shop,2
+Waitor,2
+Druggist,2
+Keeps The George And Vulture,2
+Colourman,2
+Keeps The White Swan,2
+Keeps A Tavern,2
+Lets Lodgings,2
+Keeps A Stationer'S Shop,2
+Painter, Glazier,2
+Colonel,2
+Postmaster-General,2
+Employed By Trimming Manufacturer,2
+Shirtmaker,2
+Greenwich Pensioner,2
+Maid Of All Work,2
+Under-Gardener,2
+Brickmaker,2
+Judge,2
+Pianoforte Maker,2
+House-Painter,2
+Manufacturing Chemist,2
+Millwright, Engineer,2
+Marquis,2
+Watch-Case Maker,2
+Chimney-Sweeper,2
+Keeps A Chandler'S Shop,2
+Barrister-At-Law,2
+Private,2
+Keep A Public-House,2
+Managing Clerk,2
+Keep A Tobacconist'S Shop,2
+Music-Seller,2
+Keep A Coffee-Shop,2
+Lascar,2
+Clock-Maker,2
+Keeps An Eating-House,2
+Cork-Cutter,2
+Soap-Manufacturer,2
+Keep A Shoe-Shop,2
+General Salesman,2
+Landlady,2
+Viscount Frankfort De Montmorency,2
+Drapers,2
+Leather-Seller,2
+Pot-Man,2
+Publishing Bookseller,2
+Marble-Polisher,2
+14,2
+Sugar-Baker,2
+Brass-Finisher,2
+Dame,2
+Custom-House Officer,2
+Counting House Owner,2
+Chimney-Sweep,2
+Toll Collector,2
+Drayman,2
+Trimming Manufacturer,2
+Sugar-Refiner,2
+Kitchen-Maid,2
+Cigar-Maker,2
+Ship-Chandler,2
+Sail-Maker,2
+Cap-Maker,2
+Silk-Mercer,2
+Glass-Blower,2
+Distiller,2
+18,2
+Cow-Boy,2
+Iron-Founder,2
+Vicar,2
+Mate,2
+Biscuit-Maker,2
+Master Lighterman,2
+Walking-Stick Manufacturer,2
+Boatman,2
+Mat-Maker,2
+Bricklayer'S Labourer,2
+Gold-Beater,2
+Lieutenant In The Royal Artillery,2
+Coffee-Stall Keeper,2
+Collecting Clerk,2
+Dining-Room Keeper,2
+Artificial Flower Maker,2
+Woollen Merchant,2
+Hay And Straw Dealer,2
+Notary Public,2
+Post Ofice Worker,2
+Shop Keeper,2
+Letter-Carrier,2
+Curate,2
+Chocolate Business,2
+Jeweller'S Assistant,2
+Servant To Baker,2
+Cigar Merchant,2
+Journeyman Cabinet Maker,2
+In Service To Butcher,2
+Ordinary Seaman,2
+Sculptor,2
+Wholesale Coffee Dealer,2
+Ribbon Manufacturer,2
+Shipping Agent,2
+Army Pensioner,2
+Stableman,2
+Beer-House Keeper,2
+Employed By Railway Company,2
+Shipowner,2
+Private In Royal Marines,2
+Cigar Maker,2
+Royal Artillery Gunner,2
+Carpenter And Joiner,2
+Traveler,2
+Potato Salesman,2
+Minister,2
+Night Porter,2
+Military Servant,2
+Spring Maker,2
+Leather Merchant,2
+Artillery,2
+Commercial Agent,2
+Pub Manager,2
+Soap Maker,2
+Gold Beater,2
+Plumber And Glazier,2
+Asylum Attendant,2
+Second Mate,2
+Shop Manager,2
+Tin Plate Worker,2
+Ironmonger'S Assistant,2
+Watch And Clock Manufacturer,2
+Metropolitan Police Constable,2
+Coffee-Shop Keeper,2
+Private Gentleman,2
+Staff Sergeant Of Pensioners,2
+Box Maker,2
+Licensed Carman,2
+Van Guard,2
+Justice Of The Peace,2
+Hosier'S Clerk And Collector,2
+Mantle Maker,2
+Glass Cutter,2
+Workhouse Inmate,2
+Out Of Business,2
+Stone Mason,2
+Packing-Case Maker,2
+Lock-Keeper,2
+Glass Warehouseman,2
+Clerk And Servant,2
+Night Watchman,2
+Jeweller And Silversmith,2
+Dustman,2
+Confidential Clerk,2
+Director,2
+Driver,2
+Prison Warder,2
+Officer Of The Post Office,2
+Director Of Company,2
+Coffee House Keeper,2
+Merchant Tailor,2
+Keeps A Boot Shop,2
+Wholesale Provision Merchant,2
+Cloth Merchant,2
+Commissioner For Oaths,2
+Fireman On Ship,2
+Secretary Of The Hearts Of Oak Society,2
+Checker,2
+Farm Labourer,2
+Honourable,2
+Public Service,2
+Pawnbroker'S Assistant,2
+Army Tutor,2
+Tea Merchant,2
+Architect And Surveyor,2
+Teacher Of Music,2
+Detective Sergeant And Police Constable,2
+In The Employ Of The Post Office,2
+Baker'S Packer,2
+Employed In The Post Office.,2
+Iron Worker,2
+Bottler,2
+Tram Driver,2
+Building Society Clerk,2
+Unemployed,2
+Brewery Worker,2
+Soldier In Royal Artillery,2
+Hotel Manager,2
+Butcher'S Carrier,2
+Rag And Bone Merchant,2
+Manservant,2
+Wholesale Manufacturing Furrier,2
+Employed Under Post Office,2
+Bank,2
+Rate Collector,2
+Gas Stoker,2
+Driller,2
+Mail Van Driver,2
+Athlete,2
+Wire Worker,2
+Diamond Setter,2
+Diamond Dealer,2
+Married,2
+Factory Worker,2
+Harness Maker,2
+Commissionaire,2
+Moneylender,2
+Crane Driver,2
+Public-House Manager,2
+Boiler Maker,2
+Costume Maker,2
+Bus-Driver,2
+Manufacturers' Agent,2
+Wood Turner,2
+Ice Cream Vendor,2
+Bird Dealer,2
+Platelayer,2
+Boilermaker,2
+Lady'S Maid,2
+Timekeeper,2
+Hat Maker,2
+Brush Maker,2
+Shunter,2
+Metal Worker,2
+Pianoforte Tuner,2
+Portmanteau Maker,2
+Umbrella Maker,2
+Comedian,2
+Boot Finisher,2
+Window Dresser,2
+Newspaper Cyclist,2
+Signwriter,2
+Asphalter,2
+Picture-Frame Maker,2
+Sugar Boiler,2
+Window Cleaner,2
+Bookmaker'S Clerk,2
+Mosaic Worker,2
+Overseer,2
+Operator,2
+Bookmaker'S Assistant,2
+Electrical Engineer,2
+Mining Engineer,2
+Schoolboy,2
+Hall Porter,2
+Billiard-Marker,2
+Sub-Postmaster,2
+Gilder,2
+News Vendor,2
+Traveller'S Assistant,2
+Bagmaker,2
+Wireman,2
+Bookfolder,2
+Theatrical Manager,2
+Assistant Head Postman,2
+Music-Hall Artist,2
+Gold Blocker,2
+Stockbroker'S Clerk,2
+Editor,2
+Actress,2
+Lift Attendant,2
+Scaler,2
+Marble Polisher,2
+Taxi-Driver,2
+Managing Director,2
+Manchester Warehouseman,2
+Motor Dealer,2
+Acrobat,2
+Stock Dealer,2
+Insurance Superintendent,2
+Financial Agent,2
+Rubber Dealer,2
+Aeronaut,2
+Gold Refiner,2
+Earl Of Stradbroke,1
+Stone-Sawyer,1
+Ladies Shoemaker,1
+Hosier And Hatter,1
+Army Agent,1
+Silk Weaver,1
+Market-Gardener And Farmer,1
+Shoe Maker,1
+Coach Master,1
+Fixture Dealer,1
+Bow-String-Maker,1
+Woollen-Manufacturers,1
+House-Keeper,1
+Boot And Clothes Shop Keeper,1
+Parliamentary Agents,1
+Oilshop Keeper,1
+Merchant And Manufacturer,1
+Assistant Foreman In The East India Docks,1
+Frock-Body Making,1
+Weekly Servant,1
+Foot-Boy,1
+Servant To Jeweller,1
+Horseman,1
+Salt-Merchant And Corn-Dealer,1
+Dealer In Clothers,1
+Cheese-Monger,1
+Lighter Man,1
+Cabinet-Maker And Furniture-Broker,1
+Porter In Newgate-Market,1
+Messenger Of The Court Of Bankruptcy,1
+Wholesale Jeweller,1
+Whoelsale Jeweller,1
+Bookseller And Publisher,1
+Booksller,1
+Master Tailor,1
+Linen-Draper'S Shop,1
+General Post Office,1
+Refiner,1
+Tailor'S Trimming-Seller,1
+Truss-Maker,1
+Soda-Water Manufacturer,1
+Keeps A Coal-Shed,1
+Rector Of Bishopsgate,1
+Pawbroker,1
+Keeps The Hope And Anchor Public-House,1
+Secret Springer,1
+Copper-Plate Printers,1
+Conductor, To Kidd'S Brentford Omnibus,1
+Keeps The Three Pigeons And Star,1
+Silk Merchant,1
+Jpurneyman Tailor,1
+Sells Soda-Water,1
+Cow=Keeper,1
+Mathematical Instrument Maker,1
+Keeps The Ball And Crown,1
+Porter At A Shoe Warehouse,1
+Rule-Maker,1
+Broker, Carpenter,1
+Furrier, Warehouseman,1
+Keeps The Island Mills,1
+Sells Poatoes In Covent Garden Market,1
+Chinas And Glass Dealer,1
+Keeps Potatoes,1
+Master Builder,1
+Has A Granary,1
+Private Watchman,1
+Barge Owner,1
+Apprentice Carpenter,1
+Rigger,1
+Warehouse Boy,1
+House-Servant,1
+Char,1
+Servant Out Of A Situation,1
+Stock Exchange,1
+Cutler'S Shop Keeper,1
+Silk Trimming Manufacturer,1
+Haberdasher'S Shop Keeper,1
+Journeyman Cabinet-Maker,1
+Straw-Hat Manufacturer,1
+Union-Street, Tower,1
+Clock-Case Maker,1
+Dealer In Straw-Plait,1
+Waistcoat-Maker,1
+Gunsmith,1
+Feather-Bed-Manufacturer,1
+Dealer In Wood,1
+Twopenny Post-Boy,1
+Nursery-Man,1
+Management Of A Barge,1
+Lapidary,1
+Ship'S First Officer,1
+Laundry-Keeper,1
+Milliner And Dress-Maker,1
+Lodge-Keeper,1
+Lineen-Draper,1
+Employed In The Surgery At King'S College,1
+Assistant-Surgeon, Rouyal Military Hospital,1
+Iveroy Merchant,1
+Servant-Boy,1
+Keeps A Ladies' Boarding-School,1
+Keeps A Sale-Shop,1
+Keep The Three Compasses,1
+Dealer In Dublin Stout,1
+Watchmaker Ans Jeweller,1
+In The Lace Business,1
+Contractor For The Dust And Rubbish And Filth Of The Parish Of St. James, Westminster,1
+Potato-Salesman,1
+Hay Carter,1
+Keeps An Oli-Shop,1
+Keeps The Red Lion,1
+Servant To A Baker,1
+Toy-Maker,1
+Linen-Draper, Silk-Mercer,1
+Gunner In The Artillery,1
+Day Labourer,1
+Seller Of Fruit And Vegetables,1
+17,1
+Silk Works Labourer,1
+Occasional Servant,1
+Carman To Farmer,1
+Apprentice Printer,1
+Printer'S Warehouseman,1
+Servant On Ship,1
+Apprentice Shoe-Maker,1
+Wine And Spirit-Merchant,1
+Pig-Dealer,1
+Cattle-Dealer,1
+Pencil-Maker,1
+Stage Coachman,1
+Licensed-Victualler,1
+Portmanteau-Maker,1
+Employed By The Mendicity Society,1
+Stable-Keeper And Farmer,1
+Chandler'S Shop Keeper,1
+Toolmaker,1
+Butcher'S Shop,1
+Servant To Druggist,1
+John Thomas Willey,1
+Surveyor Of Roads,1
+Beershop-Keeper,1
+Writer To Architect,1
+Foley-Place, Portland Chapel,1
+Knight, Director General Of The Ordnance Medical Department At Woolwich,1
+Pensioner Of The Royal Artillery,1
+Belong To The Water-Works,1
+Retail Beer Seller,1
+Wholesale Umbrella-Manufacturer,1
+24,1
+King Of Poland,1
+Collectin Clerk,1
+Distributor Of Newspapers,1
+Landsman,1
+Newsvender,1
+Blacking Maker,1
+Keeps The Pontifex Castle,1
+Keeps A Green-Grocer'S Shop,1
+Ham Dealer,1
+Sadler And Harness Maker,1
+Keeps The Horns, Public-House,1
+Keeps A General Sale-Shop,1
+Print-Seller, Bookbinder,1
+Keepa A Shoe-Shop,1
+Hosier, Linen-Draper,1
+Slop=Seller,1
+Keeps The Golden Fleece,1
+Builder, Carpenter,1
+Master Of A Collier,1
+Jouneyman,1
+Baker'S Journeyman,1
+Bone-Merchant,1
+Wholesale Tea Merchant,1
+Assists In Counting House,1
+Braid And Fringe Manufacturer,1
+Artist'S Colourman,1
+Colour Merchant,1
+Watch-Maker, Jeweller,1
+Carpet-Maunfacturer,1
+Assistant To Surgeon,1
+Locksmith,1
+Keeps The Flora Tea-Gardens,1
+Fireman On The Railway,1
+Undertaker,1
+Coach Proprietors, Farmers,1
+Keep The Fox Public-House,1
+Dealer In Miscellaneous Property And Spevtacles,1
+Harp-Maker,1
+Currier, Leather Cutter,1
+Wholesale Warehouseman,1
+Keeps A Shoemaker'S Shop,1
+Keep The Rainbow Public-House,1
+Milliner, Dressmaker,1
+Corporal In The 1St Royal Artillery,1
+Cigar-Merchant'S Town-Traveller,1
+Former Apprentice Shoemaker,1
+Coppersmiths Labourer,1
+Clerk And Warehouseman,1
+Porter And Salesman,1
+Servant To Dentist,1
+Apprentice Linen-Draper,1
+Printer'S Pressman,1
+Carman To Grocer,1
+Butchers Shopman,1
+Dealer In Waste Paper, And Cooper,1
+Pattern-Block Maker,1
+Cloth-Cap Worker,1
+Night-House Keeper,1
+Flock-Maker,1
+Harp Manufacturer,1
+Foundry-Owner,1
+Boot-Closer And Chandler,1
+Clerk To An Attorney,1
+Cow-Man,1
+General Shop-Keeper,1
+Unfortunate Girl,1
+Master Printer,1
+Poulterer And Cheesemonger,1
+Secretary To The British And Foreign Seaman'S Society,1
+Wholesale Cheese-Monger,1
+Customs Waterman,1
+Hosiers And Glovers,1
+Not In Any Business,1
+Commoner Of Magdalen Hall, Cambridge,1
+Mathematical Instrument-Maker,1
+Magistrate,1
+Carpenter And Cheesemonger,1
+Composition Chimney-Pots Manufacturer,1
+Butcher And Farmer,1
+Master Of The Infant Poor Establishment At Norwood,1
+Apprentice Basket-Maker And Turner,1
+Employed By Boot And Shoe Maker,1
+Journeyman Watchmaker,1
+Employed By Baker,1
+Stable-Helper,1
+Jobber,1
+Apprentice Carver And Gilder,1
+Employed By Dressmaker,1
+Servant To Farmer,1
+Apprentice At Hospital,1
+Meat-Salesman,1
+Silversmith And Pawnbroker,1
+Seller Of Naptha And Spirit Lamps,1
+Clothes Salesman And General Outfitter,1
+Hosier And Outfitter,1
+Basket-Maker And Turner,1
+Berwick-Street, Soho,1
+Public House,1
+Steward On Boat,1
+Tavern-Kepper,1
+Boot And Shoe-Maker'S Shop-Keeper,1
+Goldsmith And Silversmith,1
+Linendraper And Mercer,1
+Employed By Stable Keeper,1
+Private In The Coldstream Guards,1
+Box Book-Keeper At The Queen'S Theatre,1
+Work On The Railroad,1
+Dress-Maker,1
+Milk-Seller,1
+Tap-House Keeper,1
+Shoe-Seller,1
+Commission Traveller To Oilman,1
+Wheat-Thresher,1
+Labourer In The Docks,1
+Gingerbread Baker, Confectioner,1
+Hay Salesman,1
+Keeps The Horns Public-House,1
+Keeps A Snuff Shop,1
+Farmer Of Parish Poor,1
+Keeps The Lord High Admiral Public-House,1
+Keeps An Outfittingshop,1
+Keeps A Shoemakers Shop,1
+Works At The Gas Factory,1
+Keeps The Rose Inn,1
+Omnibus Proprietor,1
+Mason, Builder,1
+Keeps A Bookseller'S Shop,1
+Lets Trucks,1
+Dealer In Jewellery,1
+Works In Hungerford Market,1
+French-Polisher,1
+Attands A Gentleman,1
+Silk And Worsted Dyer,1
+Cook On A Ship,1
+Gentleman Farmer,1
+Engineeer,1
+Army-Clothier,1
+Glazier, Plummer,1
+Sells Clothes,1
+Keeps The Rose And Crown,1
+Keeps The Box And Cock Public-House,1
+Keeps A Baker'S Shop,1
+Keeps The Albermarle Head,1
+Tortoisehell-Comb Manufacturer,1
+Keeps The Bolt In Tun,1
+Collector To The Regent'S Canal Company,1
+Keeps A Toy Warehouse,1
+Keeps The Coach And Horses Public House,1
+Cotton Manufacturer,1
+Public Appointment In The Ordnance,1
+Keeps The Boar And Castle,1
+Keeps The Hole In The Wall,1
+Keeps The Red Cross,1
+Coal And Corn Merchant,1
+Keeps The John Bull,1
+Keeps A Silversmith'S Shop,1
+Sells Packing Cases,1
+Umbrella-Maker,1
+Deals In Ladies Wardrobes,1
+Tailor And Breeches-Maker,1
+Ballast-Heaver,1
+Ship=Broker,1
+Publican, Farmer,1
+Carpenter, Keeps A Beer Shop,1
+Keeps The Chequers Tap,1
+Countess Waldegrave,1
+Earl Of Charlemont,1
+Chairman Of The Union Society For Affecting Insurance From Fire,1
+Secretary Of The Union Society For Affecting Insurance From Fire,1
+Employed By Cheesemonger,1
+Employed By Copper-Smith,1
+Delivery-Clerk,1
+Servant To House-Agent,1
+Employed By Road-Contractor,1
+Porter And Under-Barman,1
+Employed By Silversmith,1
+Builder'S Carter,1
+Interpreter And Secretary,1
+Stoker In Brewery,1
+Cabinet Work,1
+On Liking To Cabinet-Maker,1
+Service,1
+Clerk And Town Traveller,1
+Clothier'S Servant,1
+Employed By Carriage-Manufacturer,1
+Wharfinger'S Extra Man,1
+Carman In Ironworks,1
+Ironworks Labourer,1
+Malt Factor,1
+Copper-Smiths,1
+Iron-Monger,1
+Attorney-At-Law,1
+House-Agent And Appraiser,1
+Road Contractor,1
+Mealman,1
+Shoemakers-Shop Keeper,1
+Worker In Oil And Colour-Shop,1
+Pensioner From The Grenadier Guards,1
+Tobacco And Snuff Manufacturer,1
+School-Master,1
+Smith And Carrier,1
+Trimming-Manufacturer,1
+Carpet Seller,1
+Army Officer,1
+Army Band,1
+Stationer And Rag-Merchant,1
+Paper-Hanging Manufacturer,1
+Bulider,1
+Glove Shop Keeper,1
+Comb-Hawker,1
+Master Of The Launceston Work-House, Cornwall,1
+Clothes-Seller,1
+Book-Seller,1
+General-Sale-Shop Keeper,1
+Lucifer Match-Maker,1
+Law Student,1
+Royal Artillery,1
+Stone-Mason,1
+Servant, Private In Royal Artillery,1
+Upholsterer'S Porter,1
+Floor-Cloth And Carpet-Manufacturer,1
+Boot And Shoe Warehouse Owner,1
+Glass-Dealer,1
+Army Bugleman,1
+Steam-Boat Engineer,1
+Carriage-Manufacturer,1
+Ironworks Owner,1
+Brassfounder,1
+Night Nurse,1
+Gunner, Driver In The Royal Artillery,1
+Tinman, Brazier,1
+Matron,1
+Calico Printer,1
+Hardwareman,1
+Varnish-Maker,1
+Hackey-Coach Proprietor,1
+Coach-Wheelwright,1
+Sells China And Glass,1
+Woollen Draper,1
+Keeps The Marquis Of Granby,1
+Farmer'S Man,1
+Keeps A Confecioner'S Shop,1
+Navigator,1
+Painter. Glazier,1
+Pawnbroker, Silversmith,1
+Proprietor Of The Theatre,1
+Stone-Merchant,1
+Keeps A Hotel,1
+Keeps An Upholsterer'S Shop,1
+Keeps A Coffe-Shop,1
+Coach-Painter,1
+Keeps The Haberdashers' Arms Public-House,1
+Pensioner Of The Bombay Artillery,1
+Proprietor Of The National Baths,1
+Deals In Watches,1
+Coch-Maker,1
+Sergeant-Major In The Royal Artillery,1
+Keeps The Plough,1
+Copper-Plate Printer,1
+Marine-Dtore Dealer,1
+Coach-Proprietor,1
+Proprietor Of Griffin'S Wharf,1
+Owns An Iron-Yard,1
+Hoop-Merchant,1
+Sells Fruit In The Street,1
+Lady'S-Maid,1
+Postmaster General,1
+Chief Mate On Ship,1
+Beer Shop Owner,1
+Journeyman Brass-Finisher,1
+Chemist, Surgeon,1
+Porter And Carman,1
+Keeps The King And Queen,1
+Clerk In The Custom-House,1
+Silk And Trimming Manufacturer,1
+Keeps A Bottle-Warehouse,1
+Uilder,1
+Lace Warehouseman,1
+Silk-Stockmaker,1
+Slop-Seller,1
+Draper And Laceman,1
+Publican, Deler In Jewellery,1
+Maunfacturer Of Matches,1
+Clerk To A Solicitor,1
+Miller And Flour-Factor,1
+Officer Of The Sheriff Of Middlesex,1
+Salesman In Covent-Garden Market,1
+Matron Of Hans Town School,1
+Marble-Mason,1
+Ship-Keeper,1
+Genera Dealer,1
+Coal And Timber Merchant,1
+Keeps The Devonshie Arms,1
+Muffin And Crumpet Baker,1
+Private In The 16Th Regiment Of Lancers,1
+Keeps The Camden Head Public-House,1
+Keeps The Earl St. Vincent,1
+Malster,1
+Captain In The Royal Artillery,1
+Keeps A Broker'S Shop, Keeps A Stall In Greenwich Market,1
+Engineers, Wheelwrights, And Lead Merchants,1
+Dealer In Poultry,1
+Farm-Worker,1
+Shore-Raker,1
+Tinman And Brazier,1
+Worked For Vauxhall Water Works Company,1
+Wholesale Confectioner,1
+Landlord Of The Wheatsheaf Tavern,1
+Straw-Bonnet Maker,1
+Master Carpenter,1
+Secretary To The Vauxhall Water Works Company,1
+Leather-Manufacturer,1
+38,1
+52,1
+Apprentice Tailor,1
+Servant Of All-Work,1
+Went Out Ironing,1
+Deliver Bread And To Receive Money,1
+Wholesale Glover,1
+Wholesale Cheesemonger,1
+Had A Skittle-Hall,1
+Land-Drainer,1
+Glass Painter,1
+Lieutenant In The Royal Sappers And Miners,1
+Keep The Roebuck Public-House,1
+Keeps An Outfitting Shop,1
+Dealer In Timber,1
+Keep A Sweet-Meat Shop,1
+Kept A Beer-Shop,1
+Black-Lead Pencil-Maker,1
+Hipping Butcher,1
+Keep A Boot And Shoe And Tobacconist'S Shop,1
+Keep A Ham And Beef Shop,1
+Sell Bread,1
+Keep A Tobacconists-Shop,1
+Keeps A Bottle-Shop,1
+Keep The White Hart Public-House,1
+Keeps The Granby Arms Public-House,1
+Keep The Guy Earl Of Warwick Public-House,1
+Potato-Dealer,1
+Smith And Brass-Founder,1
+Wire-Drawer,1
+Soap-Boiler,1
+Keeps A Beer-Shop, Broom-Maker,1
+Keep The Goat'S-Head Public-House,1
+Iron-Merchant,1
+Clerk Of Works, Superintendent Of The Lunatic Asylum For The County Of Surrey,1
+Dealer In Marine-Stores,1
+Knife-Grinder,1
+Selling Lucifer Matches,1
+Assistant To Laundress,1
+Sailing-Master,1
+Worked For Baker,1
+Apprentice Linendraper,1
+Warehouse Girl,1
+Sepoy,1
+Cabin-Boy,1
+Clerk To The Anti-Dry-Rot Company,1
+Master Of The West London Union Work-House,1
+Boot And Sho Maker,1
+Keep The Boot Public-House,1
+Silk-Manufacturer,1
+Sell Fruit In The Street,1
+Keep The Britannia Public-House,1
+Keep The Cape Of Good Hope Public-House,1
+Dealer In Cane,1
+Master-Carrier,1
+File-Cutter,1
+Keeps A Hair-Dresser'S Shop,1
+Master Of The Brig,1
+Kept A Ready-Made Baby-Linen Warehouse,1
+Keep A Haberdasher'S And Shoe Shop,1
+Have Shoemaker'S Shop,1
+Looking-Glass Maker,1
+Bankers,1
+Artifical Florist,1
+Keep An Eating-House,1
+Mate Of The Brig,1
+Have A Stable,1
+Keeps A Clothes And Shoe-Shop,1
+Trunnell-Maker,1
+Keeps The Robarts Arms Public-House,1
+Cloth Factor,1
+Horsehair Manufacturer,1
+Printers And Publishers,1
+Silk-Trimming Manufacturer,1
+Keeps Greengrocer'S Shop,1
+Clothes-Salesman,1
+Keep The Bell Public-House,1
+Driver In The Royal Artillery,1
+Perfumer,1
+Serjeant On Board The Vessel,1
+Tanners And Hair-Merchants,1
+Work At A Hop Warehouse,1
+Sergeant Of The 13Th Light Dragoons,,1
+Excise Officer,1
+Apprentice On A Brig,1
+Keep The King'S Arms Tavern,1
+Game-Washer,1
+Apprentice Bookbinder,1
+Assistant To A Linen-Draper,1
+Dealer In Game,1
+In The Linen Trade,1
+Superintendent Of Galley Quay,1
+Keep The Thistle And Crown,1
+Keep The Vine-Inn,1
+Keep A Milliner'S Shop,1
+Keep A Baker'S Shop, Bed-Tick Maker,1
+Photogenic Plate Manufacturer,1
+Keep A Cigar-Shop,1
+Costermonger, Deal In Horses,1
+Pensioner In The East India Company'S Service,1
+Keep The Ship,1
+Bookseller And Stationer,1
+Keep The New Hummums,1
+Tailor And Clothier,1
+Undertaker, Trunk Maker,1
+Print Seller,1
+Wire-Weaver,1
+Keeps The Adam And Eve,1
+Deal In Furniture,1
+Keep The Crown And Anchor,1
+Keeps The Nag'S Head,1
+Sugar Baker,1
+Keep The Crosby Head,1
+Keep The Red Lion,1
+Doll-Maker,1
+Keep The Harrow Public-House,1
+Modeller,1
+Landlord Of The Coach And Horses,1
+Warehousman,1
+Corn-Merchants And Factors,1
+Keeps A Clothes-Shop,1
+Seedman,1
+Keeps A Galss And China Shop,1
+Linen-Draper'S Shopman,1
+Japan Hat And Cap Manufacturers,1
+Timber-Merchant,1
+Under Cook,1
+St John, Hampstead,1
+Moorman,1
+Marquis Of Worcester,1
+Viscount Melbourne,1
+Marquis Of Northampton,1
+Watch-Tool Maker,1
+Merchant And Dealer In Foreign Skins,1
+Toy-Shop Keeper,1
+Ham And Beef Shop Keeper,1
+Lieutenant In The 6Th Regiment Of Foot,1
+15,1
+Silk-Hatter,1
+Musical Instruments Seller,1
+Lace-Shop Keeper,1
+Pawnboker,1
+Clog-Seller,1
+Dealer In Hams,1
+Coachman Out Of Place,1
+Dealer In Looking Glasses, Cabinet Work And Tea Caddies,1
+Smith And Bell-Hanger,1
+Soup-Shop Keeper,1
+Tailor And Hosier,1
+Officer In The Army,1
+Brevet Major In The 95Th Regiment,1
+Foreman To A Company For Making Flour,1
+Grocer And Tallow-Chandler,1
+Baron Lowther,1
+Member Of Parliament,1
+Police-Sergeant,1
+Duke Of Somerset,1
+Registrar Of Births And Deaths For The Parish Of St Clement Danes,1
+Dressing-Case Maker,1
+Lord Bexley,1
+Marquis Of Titchfield,1
+Journeyman Plumber,1
+Builder And Brick-Maker,1
+Keep Some Refreshment Rooms,1
+Gold And Silver Dial Maker,1
+Keeps The King'S Arms,1
+Carpet-Manufacturer,1
+Keeps The Ship,1
+Keeps The Rainbow Public-House,1
+Keep The Goat Public-House,1
+Plate-Glass Dealer,1
+Wholesale Clothiers,1
+Geeral Dealer,1
+Keep A Linen Warehouse,1
+Keeps The Sir Hugh Myddleton Public-House,1
+Keep The Crown,1
+Master Of The Brig Advance,1
+Keep The Pewter Platter,1
+Private In The First Regiment Of Guards,1
+Nurseryman And Seedsman,1
+Keeps The Norfolk Arms,1
+Keeps The Blue Last,1
+Surgeon And General Practitioner,1
+Deal In Fancy-Ball Dresses,1
+Keeps An Hotel, Farmer,1
+Carpet And Fancy Trimming Manufacturer,1
+Keep The Princess Of Wales,1
+Wholesale-Stationer,1
+Keeps The Royal Oak,1
+Keep The Montague Arms,1
+Ship-Worker,1
+Boat-Builer,1
+Coal And Corn Porter,1
+Bottle-Merchant,1
+Plate Polisher,1
+Fore-Cabin Steward,1
+Worked For Laundress,1
+Coffee-Roaster,1
+Trouser-Maker,1
+Keeps A Haberdashed'S Shop,1
+Keep The Merry Carpenters,1
+Keep The Boston Arms,1
+Wollen-Draper,1
+Proprietor Of The Farmer'S Journal,1
+Keeps The Old Carved Red Lion,1
+Keep A Book Shop,1
+Job-Master,1
+Keep A Cigar Shop,1
+Horse-Keeper At Mr. Burnet'S Distillery,1
+Dealer In Boots And Shoes,1
+Receiver,1
+Dowager Duchess Of Bedford,1
+Brewer'S-Servant,1
+General-Dealer,1
+Wholesale Draper,1
+Park-Keeper,1
+Keep An Upholstery And Carpet Warehouse,1
+Keep The Blue Eagle Public-House,1
+Colonial And General Agent,1
+Keep A Watchmakers Shop,1
+Milk-Man,1
+Keeps A Tobacconist-Shop And Coal-Shed,1
+Belong To The St. Michael Steamer,1
+Gun-Polisher,1
+Office-Keeper At The Metropolitan Stage-Carriage Office,1
+Patten-Maker,1
+Captain Of A Schooner,1
+Carriage-Driver,1
+Furniture Manufacturer,1
+Coppersmith And Engineer,1
+Wholesale Fancy Stationer,1
+Working Brick-Maker,1
+Sells Pork,1
+Keep The Fountain,1
+Hat-Manufacturer,1
+Officer In The Navy,1
+Keeps The French Horn,1
+Managing Clerk At Somerset Wharf,1
+Keeps A Grocer'S Shop,1
+Tanner,1
+Deal In Bacon,1
+Keeps The Dorset Arms,1
+Dealer In Sacks,1
+Policeman, In The Employ Of The Great Western Railway Company,1
+Keeps The Golden Lion,1
+Keeps The City Barge,1
+Stoker On A Ship,1
+Ship-Joiner,1
+Keeps The Iron Arms,1
+Laundress At The Sailors Home,1
+Glass-Merchant,1
+Cab-Proprietor,1
+Keeps A Pastry Cook'S Shop,1
+Ship-Builder,1
+Mineral Tooth-Maker,1
+Livery Stable-Keeper,1
+Captain In The 2Nd Regiment Of Life-Guards,1
+Keeps A Glass And Earthenware Shop,1
+Watch-Maker And Jeweller,1
+Deal In Accoutrement Stores,1
+Tin-Plate-Maker,1
+Bedstead-Manufacturer,1
+Horse-Dealer,1
+Plumber, Painter And Glazier,1
+Keeps A Shawl Warehouse,1
+Keeps A Tobacconist'S Shops,1
+Keeps The Wheatsheaf,1
+Law-Stationer,1
+Corporal In The Royal Artillery,1
+Viscount Jocelyn,1
+Dowager Marchioness Of Sligo,1
+Baron Skelmersdale,1
+Earl Of Harrington,1
+Hospital Kitchen-Maid,1
+Pub Potman,1
+Hawker, Bricklayer And Plasterer,1
+Deliver Meat, And To Receive Money,1
+Employed To Wash,1
+Take The Cab Men'S Money,1
+Take Out Bread,1
+Keeps A Lodging-House,1
+Waterman And Lighterman,1
+Linen Merchants,1
+Keep A Toy And Fancy Repository And A Post-Office,1
+Had An Ironmongery Stall,1
+News-Agent,1
+Copper-Merchant,1
+Fish-Salesman,1
+Steward Of The Prometheus,1
+Clerk And Principal Of St. Mark'S College, Chelsea,1
+Kept The Globe Tavern,1
+Keep The Fir-Tree Public-House,1
+Keep The Horseshoe And Magpie Public-House,1
+Keep The Star And Garter, Kingsland,1
+Fancy Dress And Masquerade Tailor,1
+Governors,1
+Railway Company,1
+Keep Fowls,1
+Watchmaker And Silversmith,1
+Tobacco And Snuff-Manufacturers,1
+Keep A Butcher'S Shop,1
+Keep The Old Globe,1
+Cab-Proprietor And Livery-Stable Keeper,1
+Lightermen,1
+Hammer-Man,1
+Window-Glass And Lead-Merchant,1
+Railway Guard,1
+Servant To Dry-Salter,1
+Parish Apprentice To Shoemaker,1
+Apprentice Engraver,1
+Page,1
+Dry-Salter,1
+Lumper,1
+Cheese And Ham-Factor,1
+Owner Of Clothes-Shop,1
+Wool-Dealer,1
+Ironmaster,1
+Journeyman Watch-Maker,1
+30,1
+13,1
+Manchester-Warehouseman,1
+Company Chairman,1
+Instrument-Maker,1
+Landlord Of Royal Oak,1
+Leatherseller,1
+Clothier And Outfitter,1
+Oyster-Shop Keeper,1
+Journeyman Carver,1
+Dipper Of Splints,1
+Parliamentary Reporter,1
+Keeps The Old Red Cross,1
+Dealer In Fixtures,1
+Keeps The Triumphant Chariot Public-House,1
+Share-Jobber,1
+Brass Founder,1
+Keeps An Oil-Shop,1
+Keeps The Collett Arms,1
+Keep The King'S Head,1
+Congreve And Safety-Light Manufacturer,1
+Pastry-Cook,1
+Dealer In Old Furniture,1
+Silvermith, Pawnbroker,1
+Keeps A Confectioner'S Shop,1
+Grocer, Tea-Dealer,1
+Master Of The Schooner,1
+Keeps The Hope And Anchor,1
+Proprietor Of Coffee-House,1
+Carpenter, Joiner,1
+Lessee Of The Queen'S Theatre,1
+Dock-Labourer,1
+Captain Of A Barge,1
+Cow-Keeper, Milkman,1
+Postal Worker,1
+Keeps A Sailor'S Boarding-House,1
+Embosser,1
+Grocer, Linen-Draper,1
+Brace-Manufacturer,1
+City-Policeman,1
+Belong To The Railway,1
+Paper-Stainer,1
+Market Gardener,1
+Hackney-Man,1
+Coal And Potato-Dealer,1
+Leather-Finisher,1
+Keeps A Plumber'S Shop,1
+Carman, Coal-Dealer,1
+Musician In The First Regiment Of Life-Guards,1
+Keep A Draper'S Shop,1
+Keep A General Shop,1
+Blocker,1
+Keeps A Corn-Chandler'S Shop,1
+Lieutenant,1
+Marquess Of Donegal,1
+Earl Of Yarborough,1
+Head Book-Keeper And Cashier,1
+Keep The Three Tuns Public-House In Turnmill-Street,1
+Sells Umbrellas,1
+Keeps The Talbot, Public-House, Chester-Street, Belgrave-Square,1
+Keeps The Queen'S Arms, Warwick-Street, Vauxhall-Bridge-Road,1
+Deals In Pork,1
+Keeps The Hare And Hounds, Stoke Newington,1
+Make Slippers,1
+Ship-Broker,1
+Buy And Sell Beasts,1
+Corn-Merchant,1
+Roller-Maker,1
+Stone Sawyer,1
+Game=Keeper,1
+Omnibus Propietor,1
+Trimming-Factory Owner,1
+Clerk, Collector,1
+Fifer,1
+Rule-Manufacturer,1
+China-Dealer,1
+Jobbing With A Horse And Cart,1
+Deals In Rags,1
+Bombardier,1
+Warden Of Greenwich Hospital,1
+Marquis Of Granby,1
+Earl Digby,1
+Rent-Collector,1
+Foreman At Silk-Manfacturers,1
+Journeyman Dyer,1
+Silk-Manfacturer,1
+Rag-Dealer,1
+Artificial Flower Carrier,1
+Washer- And Charwoman,1
+Houseamid,1
+Calico-Printers,1
+Metal-Merchant,1
+Silk Printer,1
+Gun Room Cook,1
+Coppersmith'S Porter,1
+Keeps A Book Shop,1
+Provision-Merchant,1
+Easy Chair Maker,1
+Goldsmith, Jeweller,1
+Cabin Boy,1
+Clerk At The Docks,1
+Map Colourer,1
+Model-Maker,1
+Flower Worker,1
+Draper, Hosier,1
+Keeps A Manchester Warehouse,1
+Keeps The Green Man,1
+Builders,1
+Manure Manufacturer,1
+Keeps The Centurian,1
+Keeps The Two Brewers,1
+Earl Of Arundel And Surrey,1
+Archbishop,1
+Employed By Warehouseman,1
+Employed By Surgical Instrument Maker,1
+Servant To Carrier,1
+Foreman At Flourmill,1
+Book-Binder,1
+Cutler And Surgical Instrument Maker,1
+Butcher And Publican,1
+Ship-Owner,1
+Mate On Steamboat,1
+Coach Builder And Propietor,1
+Employed By Butcher,1
+Secretary Of Working Man'S Equitable Building Society,1
+Oyster-Stall-Keeper,1
+Employed By Shirt Maker,1
+A Jobbing Man,1
+20,1
+Foreman Of Building Works,1
+Contractor And Agent To The Great Notheren Railway Company,1
+General Warehouseman,1
+Militia Officer,1
+Journeyman Copper Plate Printer,1
+Chop-House Keeper,1
+Cow Keeper And Market Gardener,1
+Leather Salesman,1
+Dowager Countess Of Ashburnham,1
+Earl Spencer,1
+Employed By Newsagent,1
+Farmer'S Weekly Servant,1
+Employed By Silk-Mercer,1
+Porter To Fur Manufacturer,1
+Town Traveller To Tobacco Merchant,1
+Farmer'S Carter,1
+Cigar Merchant'S Shopman,1
+Casual Porter,1
+Servant To Builder,1
+Employed By Grocer And Cheesemonger,1
+Newspaper Agent,1
+Birmingham Agent,1
+Fur Manufacturer,1
+Tobacco Merchant And Cigar Manufacturer,1
+Servant To Linen-Draper,1
+Brewer And Maltster,1
+Daguerreotype Artist,1
+Artist And Money-Lender,1
+Servant To Carpet Manufacturer,1
+Marine Store Keeper,1
+Master Baker,1
+Farmer'S Servant,1
+Apprentice Seaman,1
+Advertising Clerk,1
+In Service To Newsvendor,1
+Carman To Slate Merchant,1
+Colonnial Broker,1
+Draper And Silk Mercer,1
+Porter At Bishopsgate Workhouse,1
+Slate Merchant,1
+Erand-Boy,1
+Silk And Trimming Manusfacturer,1
+Collecting-Clerk,1
+Wholesale Upholsterer,1
+Master Shipwright,1
+Iron Moulder,1
+Bell Hanger,1
+Dress Amnd Mantle Maker,1
+Woollen Factor,1
+Book Binder,1
+Keeps The Masons Arms,1
+Marquis Of Donegal,1
+Journeyman Printer,1
+Keeps He Scotch Stores,1
+Manages A Stationer'S Shop,1
+Tragedian,1
+Keeps A Sweet-Stuff Shop,1
+Corporal In The Royal Marines,1
+Secretary Of The City Of London And Tower Hamlets Cemetery Company,1
+Silk Tassel Manufacturer,1
+Keeps The Plough Public House,1
+Assistant To A Chemist And Druggist,1
+Candle-Maker,1
+Hawk Boy To A Plasterer,1
+Tailor And Outfitter,1
+Keeps The Angel And Crown,1
+Birmingham And Sheffield Man,1
+Foreman To A Clothier,1
+Captain Of Ship,1
+Keeps A Draper'S Shop,1
+Fancy Trimming Manufacturer,1
+Warder At The House Of Correction,1
+Civl Engineer,1
+Machine Cutter,1
+Officer Of The Sheriff,1
+22,1
+Officer Of The Customs,1
+Sunday Watchman At Warehouse,1
+Employed By Tailor,1
+City Collecting Clerk For Bank,1
+Town Traveller And Collector To Provision Merchant,1
+Under Porter Court Of Bankruptcy,1
+Firework-Maker,1
+Firework Maker,1
+Foreman To Tailor,1
+Provision Merchant And Cheese Factor,1
+India-Rubber Manufacturer,1
+Zinc-Worker,1
+Boot-Clicker,1
+Clerk In The Bank Of England,1
+Iron-Foundry Worker,1
+Van-Man To Tea-Merchant,1
+Traveller To Looking-Glass Maker And Furniture-Dealer,1
+Draper And Wholesale Milliner,1
+In Charge Of Barge,1
+Italian Warehouse And Oilshop Owner,1
+Spirit Agent And Distiller,1
+Wood-Turner,1
+Contractor For Forage For The Troops,1
+Private Soldier Royal Marines,1
+Cook And Housekeeper,1
+Ship'S Chief Mate,1
+Apprentice Leather Worker,1
+Bird Fancier,1
+Secretary And Manager To Loan Society,1
+Warder Of Cold-Bath-Fields House Of Correction,1
+Recruiting Sergeant,1
+Keeper Of Greenwich Academy,1
+Bricklayer And Builder,1
+Perpetual Curate Of Paddington,1
+Employed By Printers,1
+Employed By Photographer,1
+Letter Carrier In Post Office,1
+Employed By Jeweller,1
+Collector For Coal-Merchant,1
+Vegetable-Shop Keeper,1
+Railway Accounts Collector,1
+Omnibus-Proprietor,1
+Draper And Hosier,1
+Ship Owner,1
+Railway Company Cashier,1
+Post Office Sorter And Letter Carrier,1
+Emplyed By Needle Manufacturer,1
+Marine-Store Dealer'S Shop Keeper,1
+Oil Merchant,1
+Needle Manufacturer,1
+108, Limington-Street, Pimlico,1
+Employed By Oil-Merchant,1
+Clerk To Hotelier,1
+Valet And Groom Of The Chamber,1
+Rag Merchant'S Foreman,1
+Rag Merchant'S Carman,1
+Warehouse-Keeper,1
+Oil-Merchant,1
+Leather Case Maker,1
+Clerk Of Works,1
+Fancy Needlework,1
+Factory Owner,1
+India-Rubber Web Manufacturer,1
+Umbrella And Parasol Manufacturer,1
+Assistant-Warder At Millbank Penitentiary,1
+Rev.,1
+Courier To A Russian General,1
+Boat Builder,1
+Prepare Candidates For The Army,1
+Manager Of A Co-Operative Store,1
+Sub-Warder,1
+Baggage Clerk For Railway Company,1
+Employed By Coach-Builder,1
+Seller Of Gutta-Percha And Boots,1
+Publican And Landholder,1
+Stableman And Cab-Driver,1
+Clerk To Railway Company,1
+Horse Dealer And Publican,1
+Commission-Agent,1
+Linendrapers,1
+Clerk At Custom'S House,1
+Owner Of Gutta Percha Company,1
+House-Decorator,1
+Publican And Fly-Master,1
+Biscuit-Baker,1
+Market Salesman,1
+Delivery Man,1
+Waiter And Servant,1
+Railway Porter And Ticket Collector,1
+Mantle-Maker,1
+Head Waiter,1
+Smith'S Labourer,1
+Seaman In Royal Navy,1
+Furrier'S Traveller,1
+Warehouse Porter And Coachman,1
+Railway Servant,1
+Traveller For Stationer,1
+Office Cleaner,1
+Delivery-Man,1
+Post-Office Employee,1
+Unskilled Labourer,1
+Spice Merchant,1
+Fruit Broker,1
+Millinery And Artificial Flower Business,1
+Proprietor Of A Dairy,1
+Tea Merchants,1
+Keeps The George And Ball,1
+Troop Sergeant-Major In The Military Train,1
+Woollen-Drapers,1
+Surgical Instrument Maker,1
+Proprietor Of The Railway Tavern,1
+Watch And Clockmaker,1
+Feather Merchant,1
+Civil Servant Pensioner,1
+Gas-Fitter, Bell-Hanger,1
+Jeweller, Pawnbroker,1
+Glass Merchant,1
+Pocket-Book Maker,1
+Colonial Broker,1
+Iron Boat-Builder,1
+Labourer On Boat,1
+Keeps An Hotel,1
+Employed On Boat,1
+Employed At The Work-House,1
+Flour-Factor,1
+Attendant In The British Museum,1
+Excavator'S Foreman,1
+Cadet In The Royal Military Academy,1
+Wholesale Perfumer,1
+Cape Merchant,1
+Provision-Dealer,1
+Military Policeman,1
+Iron And Brass Founder,1
+Barge-Builder,1
+Master Plumber,1
+Musician In The Band Of The Lincoln'S-Inn Rifle Corps,1
+Commercial Clerk, Book-Keeper,1
+Wheelwright And Coachwright,1
+Keeps A Fancy Repository,1
+Viscount Templetown,1
+Polce Officer,1
+Keeps The Freemasons' Arms,1
+Manager At Saw Mills,1
+Owner Of Saw Mills,1
+Ship'S Painter,1
+Landlord Of Property,1
+Workman At The Royal Arsenal,1
+Commission Merchant And Bill Broker,1
+Messenger At Bank,1
+Gold-Case Maker,1
+Secretary To Italian Legation,1
+Accountant'S Clerk, Lace Agent,1
+Salesman In Newgate Market,1
+Keeps The Whjte Hart,1
+Clerk Of The Works At The London, Chatham, And Dover Railway,1
+Ginger Beer Manufacturer,1
+Keeps A Fancy Shop,1
+Keeps An Upholsere'S Shop,1
+Carcase Butcher,1
+Earl Of Fife,1
+Clerk At Receiving House,1
+Servant To Cork Manufacturer,1
+Employed By Traveller,1
+Assistant And Salesman To Watch And Clock Maker,1
+Butchers' Cutler,1
+Wholesale Jeweller And Watchmaker,1
+Scholar,1
+Brewer'S Drayman,1
+Unemployed Clerk,1
+Pay-Sergeant,1
+Seafaring Man,1
+Hackney-Carriage Driver,1
+Sorting Clerk On The Railway,1
+Member Of The Firm Of Faraday And Davey, Wholesale Jewellers,1
+Wholesale Manufacturing Jeweller,1
+Managing Clerk To A Solicitor,1
+Broker'S Clerk,1
+Carpet Manufacturer,1
+Harberdasher,1
+Employed By Steel Polisher,1
+Cigar Dealer,1
+Whipmaker,1
+Carman To Coal Merchant,1
+Dealer In Clocks And Bronzes,1
+Foreman To Builder,1
+Provision Shop Keeper,1
+Copying Clerk,1
+Wine-Cooper,1
+Apprentice Ironmonger,1
+Wholesale Druggist,1
+Sells Ginger Beer,1
+Quartermaster,1
+Boot And Upper Manufacturer,1
+Dealer In Jewellery And Watches,1
+Paper Ruler And Numrical Printer,1
+Fur Cutter,1
+Runs An Oil And Italian Business,1
+Haddock Smoker,1
+Mate On A Ship,1
+Rent Collector,1
+Lapidary And Glasscutter,1
+Inspector At Board Of Works,1
+Cigar Maufacturer,1
+Engine Fitter,1
+Postmaster,1
+Drawing Master,1
+Common Serjeant Of The City Of London,1
+Store-Keeper,1
+Secretary Of State For India,1
+Earl Of Romney,1
+Post Office Labourer,1
+Marine Store-Dealer,1
+Gas-Fitter,1
+Roman Catholic Priest,1
+Scale Fitter,1
+Fiddle-Maker,1
+Dog-Dancer,1
+Retired Army Officer,1
+Letter Examiner In Post Office,1
+Superintendent Of The Stables,1
+Plasterer'S Labourer And Brickmaker,1
+Emoloyed In Post Office,1
+Agent'S Traveller,1
+Skin-Dresser,1
+Lieutenant In The Royal Engineers,1
+Indiarubber Manufacturer,1
+Surveyor And Builder,1
+Potato Merchant,1
+Private Soldier,1
+Time-Keeper, Warehouseman,1
+General Dealer, Costermonger,1
+Keeps A Shop, Manages A Building Operation,1
+Floor Cloth Manufacturer,1
+Glass Manufacturer,1
+Timekeeper On Midland Railway,1
+Woollen Merchants,1
+Lieutenant In The 10Th Hussars,1
+Brick-Maker,1
+Metal-Worker,1
+Coffee Dealer,1
+Moulding-Machine Worker,1
+Attendant At Surrey County Lunatic Asylum, Wandsworth,1
+Monetary Agent,1
+Kiln Man,1
+Keeps A Clothiers Shop,1
+Jeweller, Watchmaker,1
+Keeps The Railway Tavern,1
+Earl Of Carysfort,1
+Clergyman Of The Church Of England,1
+Earl Of Mansfield,1
+Under 12,1
+Foreman To Farrier,1
+Army Driver,1
+Taproom Manager,1
+Partner In Firm,1
+Wood Hawker,1
+Bombardier Of Royal Artillery,1
+Performance Artist,1
+Lance-Corporal Of Telegraph Boys,1
+Dealer In Woollen Cloth,1
+Surgeon'S Assistant,1
+Assistant Master Of East London Industrial School,1
+Railway Van Guard,1
+Hay-Dealer,1
+Beer-Seller,1
+Fellow Of The Royal College Of Surgeons,1
+Employed By Builder,1
+Gunmakers,1
+Carpenter And Secretary To The Perseverance Birmingham Society,1
+Employed By Mantle Maker,1
+Barrister And Author,1
+Ostrich Feather Manufacturer,1
+Apprentice Draper,1
+Dealer In Casks,1
+Fancy Boxmaker,1
+Pawnbroker Out Of Business,1
+Chessemonger,1
+Marker In The East India Stores,1
+Diamond Merchant, N=Manufacturing Jeweller,1
+Machine Ruler,1
+Dealer In Human Hair,1
+Keeps The Hand-In-Hand,1
+Keeps The Prince Edward Public House,1
+Keeps The Pheasant Public House,1
+Portmanteau Manufacturer,1
+Keeps The Saloon At The Adelphi Theatre,1
+Keeps The Exmouth Arms,1
+General Shop Keeper,1
+Hairdreser,1
+Clerk In The Office Of The Colonial Board And Emigration Commissioners,1
+Keeps The Stafford Hotel,1
+Foreman In Brewery,1
+Picture Frame Maker,1
+M. P.,1
+Soliciro'S Clerk,1
+Tramway Car Driver,1
+Police Pensioner,1
+Manufacturing Optician,1
+Keeps The Barley Mow,1
+Wax Bleacher,1
+Lord Chief Justice,1
+Detective Sergeant,1
+Surgeon Of Newgate,1
+Police Consatble,1
+Soldier In Royal Dragoons,1
+In General Trade,1
+Foreman Butcher,1
+Clicker Or Riveter,1
+Telegraph Clerk,1
+Market Gradener,1
+Dealer In Veneer And A Cabinet Maker,1
+Foreman Tinsmith,1
+Superintendent Of Labour At Poplar Workhouse,1
+China Dealer,1
+Retail Coal Dealer,1
+Traveller For Tea And Coffee Merchant,1
+Barman And Cellarman,1
+Wholesale Tea And Coffee Merchant,1
+Sub-Warder At The House Of Detention,1
+Able-Seaman,1
+Manager Of Saw And Tool Warehouse,1
+Estate Manager,1
+Ship'S Steersman,1
+Letter Of Apartments,1
+Drawing-Room Waiter,1
+Manager Of Tavern,1
+Tea-Dealer'S Manager,1
+Foreman At Dyer'S,1
+Cheesemonger, Butterman,1
+Stewed Eels Business,1
+Basket-Maker,1
+Army And Navy Contractors,1
+Ironplate Worker,1
+Manager To Jeweller,1
+Cattle Salesman,1
+Banker, Money Lender,1
+Keeps A Restaurant,1
+Assistant Pot Office Overseer,1
+Employed In Druggist Department,1
+Cutter Employed By Army Tailor,1
+Insurance Company Clerk,1
+Army Tailor,1
+Major Royal Artillery,1
+Pay-Serjeant Royal Artillery,1
+Bargee,1
+Under Stable-Man,1
+Engineer'S Labourer,1
+Odd Job Man,1
+Retired Pawnbroker,1
+Unemployed Footman,1
+Employed On Commission By Twine Manufacturer,1
+Clerk And Manager Of Chemical Works,1
+Lunatic,1
+Twine Manufacturer,1
+Servant Housekeeper,1
+Dealer In China,1
+Foreman Of Carpenters,1
+In Employ Of Eating House Keeper,1
+Yardman,1
+Publican'S Wife,1
+Brewer'S Collector,1
+Dog-Collar Maker,1
+Proprietor Of Turkish Baths,1
+Shirt Collar, Wristband, And Front Manufacturer,1
+Earl Of Radnor,1
+Trustee Of A Train Friendly Society,1
+Housekeeper To Indigo Broker,1
+Chief Inquiry Officer For Charity Organization Society,1
+Page In Albemarle Club,1
+Tailor'S Assistant,1
+Railway Contractor,1
+Managing Director For Woollen Drapers And Manufacturers,1
+Indigo Broker,1
+Peeress,1
+Assistant To Hosier,1
+Housekeeper To Steam Packet Company,1
+Signal Fitter,1
+Trader In India Rubber,1
+Pub Landlady,1
+Assistant Clerk,1
+Theatre Dresser,1
+Theatre Lessee,1
+Landlady Of Public House,1
+Plate Layer,1
+Sandman At Loam Pits,1
+Former Landlord,1
+Hairdresser'S Assistant,1
+Furrier'S Porter,1
+Employed By Broker,1
+Seaman- Second Mate,1
+Packer At Covent Garden Market,1
+Baby Minder,1
+Borker,1
+Assistant-Solicitor,1
+Railway Engine-Driver,1
+Sorter In Post-Office,1
+Hosiers Servant,1
+Scrivener,1
+Cab Propietor,1
+First Mate On Ship,1
+Bank Porter,1
+Employed By Coal Merchant,1
+Warehouse Manager,1
+Teacher Of Languages,1
+Grocer And Post-Office Receiver,1
+Marine Modeller,1
+Wholesale Optician,1
+Inn Owner,1
+Italian Warehouseman,1
+Steward'S Room Boy,1
+Stall Holder,1
+Pastrycook,1
+Law-Writer,1
+H.M. Secretary Of State For The Home Department,1
+Assistant Secretary Of The Marine Department Of The Board Of Trade,1
+Tradesman,1
+Medicinal Capsule Maker,1
+Haberdahser,1
+Sewing Machine Maker,1
+Cigar Merchants,1
+Stove Manufacturer,1
+Engaged At The Naval College,1
+Army Accoutrement Maker,1
+Keeps The Railway Hotel,1
+Bootseller,1
+Pressman,1
+Twine Merchant'S Traveller,1
+Wholesale Druggists' Sundriesmen,1
+Lord Of The Manor,1
+Manager At Warehouse,1
+Foreman At Glass Works,1
+Under-Cook,1
+Custom House Clerk,1
+Glass Driller,1
+Keeps The Castle Public-House,1
+Manager Of Printing-Office,1
+Wine Carrier And Forwarding Agent,1
+Manager Of Building Society,1
+Lord Londesborough,1
+Ships Captain,1
+Art Cabinet- Maker,1
+Keeps A Wardrobe Shop,1
+Salt Merchant,1
+Keeps The Aldersgate Street Hotel,1
+Gas Inspector,1
+Watch Importer,1
+Bonded Warehouseman,1
+Veneer And Moulding Manufacturer,1
+Director Of The London And Manchester Insurance Company, Limited,1
+Custom House Officer,1
+Coach Builder,1
+Wholesale Oilman, Druggist,1
+Consulting Engineer,1
+Architect, Surveyor,1
+Works In Bicycle Manufacture,1
+In Service To Shipping And Insurance Agent,1
+Grocer And Tobacconist,1
+Solicitor'S Common Law And General Clerk,1
+General Agent,1
+Superintendent Of The Casual Ward Of Fulham Union,1
+Architect'S Clerk,1
+Secretary To The Prison Commissioners Engaged At The Home Office,1
+Dealer In Diamonds,1
+Wholesale Dealer,1
+Auctioneer And House Agent,1
+Def1-72-18821120,1
+Nailmaker,1
+Hatter'S Assistant,1
+Cage Maker,1
+Printer, Publisher And Bookseller,1
+Biscuit Baker,1
+Lord Brabourne,1
+Plumber And Gasfitter,1
+Company Manager,1
+Barge Skipper,1
+Club Steward,1
+Guard Employed By Midland Railway Company,1
+Junior Clerk,1
+Deceased,1
+Cart Inspector For Pall Mall Gazette,1
+Pipe Fitter,1
+Iron Founder,1
+Tailor And Grocer,1
+Leather Dresser And Manure Manufacturer,1
+Porter And Messenger,1
+Entering Clerk,1
+Finisher,1
+Liscenced Cabman,1
+Shop Boy,1
+Employed Aboard Ship,1
+Licensed Victualler And Bar Proprietor,1
+Boot And Shoe Manufacturer,1
+Shipper,1
+Fine Art Publisher,1
+Railway Engine Driver,1
+Hosier'S Assistant,1
+Ship'S Saloon Waiter,1
+Post Office Workre,1
+Board Of Health Employee,1
+Post Office Worjer,1
+Lord St Leonards,1
+Bailee,1
+Fish Merchant,1
+Keeps A Refreshment Room,1
+Polce Constable,1
+Forman,1
+Counterman,1
+Outdoor Clerk And Under Clerk,1
+Dental Surgeon,1
+Fruit Salesman,1
+Lather,1
+Biscuit Maker,1
+Major In The Army,1
+Salesman In The London Central Meat Market,1
+Tea Dealer,1
+Felt Maker,1
+Milk Purveyors,1
+Keep The Wheatsheaf Public-House, Greenwich,1
+Keep The Lord Nelson, Trafalgar Road, East Greenwich,1
+Assistant To Butcher,1
+Lord Grantley,1
+Net-Maker,1
+Corn Dealer,1
+Purser,1
+Foreman Shipwright,1
+Fancy Stationer,1
+Newsboy,1
+County Court Judge,1
+Manager At Boot Shop,1
+Foreman And Manager Of Building Site,1
+Dray Driver,1
+Zinc Manufacturer,1
+Captain Of The Steamship,1
+Captain In The Army,1
+Student, Writer,1
+Upsholsterer,1
+Bedding Manufacturer,1
+Keeps A Brush Warehouse,1
+Workman For Contractor,1
+Printer And Publisher,1
+Ex-Wine Merchant,1
+Silk Spinner,1
+Milkman For Dairy,1
+Employed By Leather Merchant,1
+Lithographic Artist,1
+Engine-Fitter,1
+Shopman For Cornchandler,1
+Retired Liscensed Victualler,1
+Shorthand Clerk,1
+Printer'S Outdoor Traveller,1
+Sponge-Clipper,1
+Surgical Instrument Coverer,1
+Newspaper Manager,1
+Assistant Book-Keeper,1
+Potato Hawker,1
+Owner Newspaper Shop,1
+Unfortunate Woman,1
+Post Office Letter Carrier (Suspended),1
+Clerk In The Office Of The Incorporated Law Society,1
+Manager To Stationers,1
+Oilman On Ship,1
+Master Butcher,1
+Police Sergeant,1
+Billiard-Room Proprietor,1
+Metal Dealer,1
+Pipe Manufacturer,1
+Works For Auctioneer,1
+Pianoforte Manufacturer,1
+Furniture Warehouseman,1
+Chief Engineer,1
+Cap Amker,1
+Printer, Publisher,1
+Machine Dealer,1
+Agent For Watchmakers,1
+Fur-Puller,1
+Commissioner For Taking Oaths,1
+Hackney Carriage Driver,1
+Canvasser For Advertisements,1
+Tea Merchant'S Traveller,1
+General Manager Of Newspaper,1
+Discharged Soldier,1
+Porter And Odd Job Man,1
+Advertisement Agent,1
+Veterinary Surgeon,1
+Newspaper Propietor,1
+Mantle Manufacturer,1
+Canvasser And Collector For Photographers,1
+Miller And Corndealer,1
+Refreshment-House Keeper,1
+Chief Clerk,1
+Fancy Goods Dealer,1
+Salesman To Hat Manufacturer,1
+Countess,1
+Cat'S Meat Man,1
+Works In Theatre,1
+Nursery Governess,1
+Preacher,1
+Custodian Of Hengler'S Circus,1
+Engineering Student,1
+Bricklayer And Jobbing Man,1
+Paper-Maker,1
+Lieutenant-Commander In The Argentine Navy,1
+Patentee,1
+Retired Merchant,1
+Animal Keeper And Shop Attendant,1
+Box Manufacturer,1
+Domestic Servants,1
+Sweetstuff Shopkeeper,1
+Wood Pulp Maker,1
+Wood Yard Foreman,1
+Beadle,1
+Lodging Housekeepers Deputy,1
+Small Shop Keeper,1
+General Secretary Of The National Amalgamated Sailors' And Firemen'S Union,1
+Bakery Worker,1
+Army Major,1
+Worked In Sugar Refinery,1
+Army Colonel,1
+Manager To The Shrewsbury And Talbot Coal Company,1
+Relief Station-Master At Penge Railway Station,1
+Clerk And Manager To Builder,1
+Boot And Show Manufacturer,1
+Fruit-Shop Keeper,1
+Ship'S Chief Engineer,1
+Traveller, Agent,1
+General Labourer,1
+Merhcant,1
+Wholesale Manufacturer,1
+Fair Sewer,1
+Keeps The Brassey Arms,1
+Coal Miner,1
+Earl Of Wicklow,1
+Trustee Of The East End Mothers Home,1
+Officer Under The Bankruptcy Acts To Administer Oaths,1
+Overseer For The Parish Of St Mary Whitechapel,1
+Secretary Of State For Home Department,1
+Judge Of The High Court,1
+Inspector Of Police,1
+Building Socoety Employee,1
+Loan Society Employee,1
+Trustee Of The Surprise Friends Of Labour Loan Society,1
+Police Magistrate,1
+Servant To The Commissioners Of Customs,1
+Secretary Of War,1
+Barrister'S Clerk,1
+Seaman'S Boarding-House Keeper,1
+Gamekeeper,1
+Handyman And Carpenter,1
+Jeweller And Watchmaker,1
+Tavern Landlady,1
+Coal Heaver,1
+Children'S Nurse,1
+Clerk, Traveller, And Collector,1
+Baker'S Shop And Post-Office Keeper,1
+Lighterman And Barge Owner,1
+Packing Room Foreman,1
+Publican'S Manager,1
+Ice-Crsam Vendor,1
+Clothier'S Shop Keeper,1
+Horse-Collar Maker,1
+Clerk To Rag And Bone Merchant,1
+Plater'S Boy,1
+School Boy,1
+3, Colburn Road, Ham,1
+Retired Captain,1
+Market-Gardener And Dairyman,1
+Meat-Market Labourer,1
+Lamplighter,1
+Kitchen-Boy,1
+An Unfortunate,1
+Provision Maerchant,1
+Composition Manufacturer,1
+Employed In The Post Office - Extra Postman,1
+House-Painter And Decorator,1
+Painter, Builder And Carpenter,1
+Seldom In Employment,1
+Watchman On Steam Ship,1
+Oilman And Colourman,1
+Gun-Maker,1
+Miner Walter Company Owner,1
+Colliery Agent And Clerk,1
+Account Collector,1
+Fruit Hawker,1
+Dealer In Jewellery And Landlord,1
+Colliery Agent,1
+Superintendent Worker, Army Clothing Department,1
+57, Bow Lane, Poplar,1
+3, Jewin Street,1
+Chimney Sweeper,1
+Cotton Merchant,1
+Deserter From The Army,1
+Outside Porter At The Central Meat Market,1
+Liscensed Hawker,1
+Manager, Economic Smokeless Fivre Company,1
+Musical Composer,1
+Bailiffs Assistant,1
+Manager To Clothier,1
+Warehouse Owner,1
+Building Society Employee,1
+Trustee,1
+Earl Of Derby,1
+Company Directorna,1
+Earl Of Carrington,1
+Employed By Railway Comapny,1
+Barman And Labourer,1
+Commission Agent For Fruit And Flowers,1
+Manager Of Temperance Hotel,1
+Ship'S Boatswain,1
+Van Driver,1
+Worked For Fish Dealer,1
+Builder And Decorator,1
+General Servant And Milk Carrier,1
+Boot-Finisher,1
+Bicycle Maker,1
+Registered Physician And Surgeon,1
+Milk Dealer,1
+Inland Revenue,1
+Prince Of Braganza,1
+Servant Of The Council,1
+34,1
+Admiral,1
+Physician And Surgeon,1
+Keep The Hope And Anchor Public House,1
+Secretary To J. A. Preece And Sons, Limited,1
+Seed Sorter,1
+Meat Carrier,1
+Watchman For Watermen At The River Side,1
+Works In Laundry,1
+Colour-Type Printer,1
+Auctioneer'S Porter,1
+Greaser,1
+Rivetter,1
+Flie Man At The Hammersmith Theatre Of Varieties,1
+Sold Matches And Bootlaces,1
+Earl Selborne,1
+Boiler-Maker,1
+Cellar Man,1
+Licensd Victualler,1
+Scavenger,1
+Navy Foreman,1
+Manager Ofthe White Horse,1
+Hotel Proprietor,1
+Domestice Servant,1
+Porter And Packer,1
+Job Master,1
+Manager Of Oil And Colour Shop,1
+Servant Of The Metropolitan Borough Of Stepney,1
+Principal Of The Guildhall School Of Music,1
+Bookeeper And Invoice Clerk,1
+Brush Importer,1
+Duke Of Westminster,1
+Sells Old Clothes,1
+Cattle Dealer,1
+Tea And Coffee Merchant,1
+Boot Dealer,1
+Rubber Worker,1
+Thermometer Maker,1
+Waste Paper Dealer,1
+Tramway Ticket Inspector,1
+Soldier, 1St Suffolk Regiment,1
+Cotter,1
+Wood Machinist,1
+Car Man,1
+Bill-Poster,1
+Money Taker At A Music-Hall,1
+Printing Ink Grinder,1
+2, Clerk,1
+Elocutionist,1
+Cigarette-Maker,1
+Wife Of Harry Strohm,1
+Field Worker,1
+Wife Of Male Prisoner,1
+Clerks,1
+Entertainer,1
+Silver Caster,1
+Stonecutter,1
+Stone Dresser,1
+Salter,1
+Cropper Boy,1
+Stationer'S Assistant,1
+Author,1
+No Trade,1
+Ex-Solicitor,1
+Licensed Victualler, Retired,1
+Waste-Paper Dealer,1
+Tanner And Leather Merchant,1
+Marine Engineer,1
+Blouse Manufacturer,1
+Law Writer,1
+Dealer'S Assistant,1
+Art Florist,1
+Cycle Porter,1
+Van-Guard,1
+Relieving Officer Of The Mile End Guardians,1
+Treasurer Of The Weygood Directors' Sick Club,1
+Fancy Jeweller,1
+Patent Medicine Vendor,1
+Master Gardener,1
+Money-Lender,1
+Rag Dealer,1
+Skin Dresser,1
+Chief Inspector Of Police,1
+Manufacturer Of Kitchen Utensils,1
+Piano Finisher,1
+Collector Of Taxes,1
+Stone Cutter,1
+Servant Maid,1
+Clerk To The Guardians Of The Poor Of The Poplar Union,1
+Second Steward,1
+Wholsesale Stationers,1
+Chmeist,1
+Waste Paper Merchant,1
+Umbrella Handle Fitter,1
+Cap Cutter,1
+Dairy-Man,1
+Piano Tuner,1
+Works Manager,1
+Director And Manager,1
+Diamond Polisher,1
+Nursemaid,1
+Alderman,1
+Metal Refiner,1
+Metal Polish Maker,1
+Public-House Broker,1
+Bakers Assistant,1
+Trustee In Bankruptcy,1
+=Engineer,1
+Wardrobe Dealer,1
+Carman And Contractor,1
+Postman Employed Under Post Office,1
+Postman Employed Under The Post Office,1
+Wife,1
+Printer'S Reader,1
+Dealer And Midwife,1
+Deader,1
+Purse-Maker,1
+Employed At Post Office,1
+Former Bookmaker,1
+Scalemaker,1
+Bricklayers Labourer,1
+House And Estate Agent,1
+Porter Employed By Post Office,1
+Car-Washer,1
+Messenger Employed Under Post Office,1
+Cock Cutter,1
+Of No Occupation,1
+Dealer Employed Under The Post Office,1
+Cabwasher,1
+Pedlar,1
+Boat Proprietor,1
+6, Photographer,1
+Labourer And Army Reservist,1
+Workhouse Ward Attendant,1
+Works At Confectioners,1
+Harmonium Builder,1
+Butterman,1
+Bluejacket - Navy Gunner,1
+Kitchen Boy,1
+Baker And Confectioner,1
+Dealer And Costermonger,1
+Antiques Dealer,1
+South African Trader,1
+Quantity Surveyor,1
+Workhouse Cook,1
+Workhouse Labour Master,1
+Workhouse Labour Mistress,1
+Vegetable Salesman,1
+Coal Dealer,1
+Printer'S Boy,1
+Groundman,1
+Butcher'S Assistant,1
+Door Attendant,1
+Builder'S-Labourer,1
+Tarpaulin Maker,1
+Fitter'S Mate,1
+Stick Mounter,1
+Litter,1
+Supervisor Of Inland Revenue,1
+Shipbuilder,1
+Post Office Porter,1
+Post Office Groom,1
+Vulcaniser,1
+Postmistress,1
+Decorator And Occasional Postman,1
+Confectioner And Restaurant Keeper,1
+Wood Stainer,1
+Iron Turner,1
+Sack Maker,1
+Barge Breaker,1
+Motorbus Driver,1
+7, Salesman,1
+Laundrymaid,1
+Van Traveller,1
+Conductor,1
+Meter Inspector,1
+Motor Omnibus Driver,1
+Jam Maker,1
+Presser,1
+Auctioneer And Estate Agent,1
+Tiler,1
+Pavior,1
+Instrument Maker,1
+Motor Mechanic,1
+Bus Driver,1
+Magnetic Healer,1
+Bookman,1
+Desler,1
+Post Office Messenger,1
+8, Clerk,1
+Servant Parlourmaid,1
+Pawnbroker'S Warehouseman,1
+Collector Of Insurance Premiums,1
+X22;Higher Critic",1
+Retired Major-General,1
+Road Foreman,1
+Donkeyman,1
+Signal Boy,1
+Tram-Driver,1
+M.D.,1
+Hat And Cap Manufacturer,1
+Manager To Fruiterer,1
+Flowermaker,1
+Inventor,1
+Furniture Remover,1
+Landlord Of White Bear,1
+Brass Polisher,1
+Organ Grinder,1
+Beerhouse Manager,1
+Keeps An Off-License House,1
+Turf Commission Agent,1
+Laudry Manager,1
+Antique Dealer,1
+Phrenologist,1
+Metal Sorter,1
+Shoeing Smith,1
+Forage Merchant,1
+Saleroom Attendant,1
+Corn Merchant'S Foreman,1
+School Attendant,1
+9, Clerk,1
+Occupation And Antecedents Unknown,1
+Wireless Operator,1
+Leather Worker,1
+3, Journalist,1
+Pianoforte Polisher,1
+Paper Hanger,1
+Mortgage Broker,1
+Singer,1
+Music Teacher,1
+Formerly A Solicitor,1
+Stick-Mounter,1
+Rifle-Cleaner,1
+Pattern-Maker,1
+Marine Store Dealer,1
+Letter Sorter,1
+Tram Conductor Employed By The London County Council,1
+1, Dealer,1
+8, Labourer,1
+Trunk Maker,1
+Machine Man,1
+Formerly Licensee Of A Beerhouse In Whitechapel,1
+7, Weightlifter,1
+Parkkeeper,1
+Clerk, Of French Nationality,1
+Catameat Vendor,1
+Railway Messenger,1
+Shop Woman,1
+Billposter,1
+Lampfitter,1
+Clockmaker,1
+Piano Repairer,1
+9, Dealer,1
+Pointer,1
+Registered Moneylender,1
+Ex-Postman,1
+Telegraph Fitter,1
+Drill Instructor,1
+Electric Therapeutic,1
+Road Man,1
+Leather Gilder,1
+Working Jeweller,1
+Pawnbroker, Jeweller,1
+Electrician'S Mate,1
+Window-Cleaner,1
+Sadler,1
+Motor Man,1
+Subeditor,1
+Artist, Designer,1
+Schoolmistress,1
+Buyer,1
+Ticket Writer,1
+Masseuse,1
+Billiard Instructor,1
+Poultry Breeder,1
+Tinker,1
+Taking Out Patents Fin The Motor Trade,1
+Deputy, Common Lodging House,1
+Employed By Star Newspapaper,1
+Printer, Stationer,1
+Telegraph Messenger,1
+Motor Cab Driver,1
+Fret Cutter,1
+Sign Writer,1
+Advertising Specialist,1
+Paper Agent,1
+Concert Agent,1
+Job-Buyer,1
+Tinplate Worker,1
+Brickcleaner,1
+Cape Mounted Policeman,1
+Wire Drawer,1
+Deacon,1
+Parlourmaid,1
+Grainer,1
+Craneman,1
+Blind Maker,1
+Covent Garden Market Porter,1
+Toymaker,1
+Postal Porter,1
+Brick-Layer,1
+Rag Sorter,1
+Railway Constable,1
+Shopwoman,1
+8, Van Boy,1
+Boiler Scraper,1
+Gasworker,1
+Organ Builder,1
+Motor Washer,1
+Valuer,1
+Lieutenant, Swedish Army,1
+Steeplejack,1
+Typist,1
+Temporary Assistant Postman,1
+8, Jeweller,1
+Horn Dealer,1
+7, Labourer,1
+Case Maker,1
+Table Maker,1
+Pattern Cutter,1
+Fretworker,1
+Gate Maker,1
+Wood-Carver,1
+Sugar Planter,1
+Tile Fixer,1
+Baptist Minister And Missionary,1
+Postal Sorter,1
+Bioscope Operator,1
+Moulder,1
+Superintendant Registrar Of Births Deaths And Marriages,1
+Establishment Sorter,1
+Van Washer,1
+Estates Manager,1
+Record-Presser,1
+6, Glass Moulder,1
+Icecream Vendor,1
+Auxiliary Postman And Tailor,1
+Wharf Manager,1
+Wrestler,1
+8, Barman,1
+Blousemaker,1
+Boot Fitter,1
+Uxiliary Postman,1
+Taxi, Driver,1
+Ink Maker,1
+Trainer,1
+Engineers' Finisher,1
+Skindresser,1
+Metalworker,1
+Printer'S Cutter,1
+Beer Retailer,1
+Coal-Trimmer,1
+Stable Boy,1
+Tax Collector,1
+Stockjobber,1
+Stewardess,1
+Wood Engraver,1
+Baker, Grocer,1
+Fireman With P And O Company,1
+Taxicab Proprietor,1
+Bottmaker,1
+Stationer, Newsagent,1
+Captain Of Barge,1
+Baker, Confectioner,1
+Chemist'S Assistant,1
+Motor-Mechanic,1
+Ship'S Quartermaster,1
+Flower Maker,1
+Taxi-Cab Proprietor,1
+Ribbon Merchant,1
+Lace Merchant,1
+Embroidery Dealer,1
+Embroidery Mercant,1
+Embroidery And Trimming Importers,1
+Sail Maker,1
+Taxi Driver,1
+Motor Builder,1
+Licensee,1
+Private Detective,1
+Inquiry Agent,1
+Collier,1
+Duchess,1
+Casual Sorter,1
+Clerk And Auxiliary Postman,1
+Box Cutter,1
+Stick Maker,1
+Master Stevedore,1
+Shipbroker,1
+Motor Fitter,1
+Sea-Man,1
+Grinder,1
+Sailmaker,1
+Cab Cleaner,1
+Coal Trimmer,1
+Instructor,1
+Palmist,1
+Tram Conductor,1
+Pot- Man,1
+Chairmaker,1
+Watcher,1
+Picture Dealer,1
+Cab-Washer,1
+2, Stoker,1
+Motor Smith,1
+5, Labourer,1
+Vestry Woman,1
+Piano Dealer,1
+Super,1
+Wharf Foreman,1
+Music-Hall Manager,1
+Bust Maker,1
+Gymnastic Instructor,1
+Machine Cleaner,1
+Licensced Victualler,1
+Army Reservist,1
+Manager To Outfitter,1
+Cap Manufacturer,1
+Analytical Chemist,1
+Designer,1
+Blockcutter,1
+Jeweller'S Clerk,1
+Hospital Attendant,1
+Motorman,1
+Tea Sifter,1
+Debt Collector,1
+Coal Carman,1
+Cricketer,1
+Bag Maker,1
+Ticketwriter,1
+S. Evedore,1
+Linoleum Planner,1
+Coeter,1
+Ex-Policemen,1
+Tram. Driver,1
+Flat Proprietor,1
+Iron Merchant,1
+Horse Rider,1
+Parlour Maid,1
+Shoe Finisher,1
+Boot Sewer,1
+Share Dealer,1
+Chemical Instrument Manufacturer,1
+Detective,1
+Delegate Of The Sailors' And Firemen'S Union,1
+Chambermaid,1
+Ship'S Clerk,1
+Retired Officer,1
+Galvaniser,1
+Rubber Sorter,1
+Glass Severer,1
+Music-Hall Attendant,1
+Towel Supplier,1
+Cabinet Maker'S Foreman,1
+Cabinet Manufacturer,1
+Boliermaker,1
+Brass Moulder,1
+Mat Maker,1
+Waterside Labourer,1
+Painter And Decorator,1
+Sorter In Post Office,1
+Assistant Postman And Gardener,1
+Artist'S Model,1
+Foreman Packer At The Royal Mint,1
+Coalman,1
+Authoress,1
+Agent To Leather Goods Manufacturers,1
+Variety Artist,1
+Post Office Assistant,1
+Picture Palace Proprietor,1
+Costumier'S Matcher,1
+Book-Maker,1
+Carriage Cleaner,1
+Job Buyer,1
+Bottle Washer,1
+Coster-Monger,1
+Sealer,1
+Postal Clerk,1
+Hotel Porter,1
+School Teacher,1
+Warrant Officer, Royal Navy,1
+Notary,1
+Sign Fixer,1
+Fish Frier,1
+8,1
+Art Expert,1
+Post Office Overseer,1
+Post Office Clerk,1
+0, Agent,1
+Saleswoman,1
+Horsedealer,1
+Fitter'S Labourer,1
+Bottle Merchant,1
+Coffee-House-Keeper,1
+Costumier,1

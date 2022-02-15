@@ -1,0 +1,49 @@
+Columns
+
+Y = Yes we can extract
+N = No, can't extract
+~ = Can approximately extract, may not always be present in annotation
+
+Y Defendant	
+N Year of Birth	(unnecessary)
+~ Age
+~ Occupation	                   <interp inst="t19111205-name-10" type="occupation" value="counterman"/>
+N Class	
+N Skin Color
+~ Gender
+N Nationality (ignore??? not recorded)
+N Statement
+Y Victim
+N Year of Birth2 (unnecessary)
+N Occupation2
+N Class2
+Y Gender2	
+N Skin Color2	
+N Nationality2	
+Y Year	
+N Time of Day	
+N Specific	
+Y Offence	
+Y Specific3	
+Y Verdict	
+Y Pleaded Guilty	(verdictSubcategory=pleadedGuilty)
+Y Sentence	
+Y Specific2	
+~ Numerical Value	(of verdict? can get <join result=defendantPunishment>Confined X years> or similar)
+Y Lesser Offence	
+N Jury Recommendation
+~ Location of Offence (crimeLoc tag? not in most trials)
+N High Seas
+Y Reference Number
+N Religion (ignore?)
+N Statement2
+
+--- Human Notes ---
+Good Case?	
+Notes	
+Other Black People	
+National Archives Documents	
+Newspaper Reports	
+How race/complexion is identified	
+Court ID	
+Self ID	
