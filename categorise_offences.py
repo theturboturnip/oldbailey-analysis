@@ -94,6 +94,33 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
         if category_on_one_row:
             current_start_row = max(group_end_rows)
 
+def write_full_sheets(offence_full_infos: Dict[CategorySubcategory, pd.DataFrame], writer: pd.ExcelWriter):
+    workbook = writer.book
+    for offence_key in sorted(offence_full_infos.keys()):
+        offence_sheet_name = f"{offence_key[0]}-{offence_key[1]}"
+        if len(offence_sheet_name) > 31:
+            old_name = offence_sheet_name
+            offence_sheet_name = offence_sheet_name[:31]
+            print(f"Shortened sheet name {old_name} to {offence_sheet_name}")
+        
+        # Add worksheet
+        # (old way)
+        # df.to_excel(writer, sheet_name=offence_sheet_name, index=False)
+
+        # (new way)
+        # Make the sheet manually, write the dataframe out and add a proper table
+        worksheet = workbook.add_worksheet(offence_sheet_name)
+        writer.sheets[offence_sheet_name] = worksheet
+        # https://xlsxwriter.readthedocs.io/working_with_pandas.html
+        # write out sheet without header
+        df = offence_full_infos[offence_key]
+        df.to_excel(writer, sheet_name=offence_sheet_name, startrow=1, startcol=0, header=False, index=False)
+        # Add table, which adds its own header
+        column_settings = [{'header': column} for column in df.columns]
+        (max_row, max_col) = df.shape
+        worksheet.add_table(0, 0, max_row, max_col - 1, {'columns': column_settings})
+
+
 def main():
     p = argparse.ArgumentParser("get_occupations.py", description="Tool for processing Old Bailey data into a spreadsheet")
     p.add_argument("data_xml_folder", type=str)
@@ -125,6 +152,18 @@ def main():
                 punishments = Counter()
             )
         )
+    offence_full_infos: Dict[CategorySubcategory, pd.DataFrame] = \
+        defaultdict(
+            lambda: pd.DataFrame(
+                columns = [
+                    "trialId",
+                    "verdictCategory", "verdictSubcategory",
+                    "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
+                    "defendantName", "defendantAge", "defendantGender", "defendantOccupation",
+                    "defendantWorkingClass", "defendantSkilled",
+                ]
+            )
+        )
     for date, trials in trials_per_date.items():
         for trial in trials:
             if trial is None:
@@ -138,24 +177,82 @@ def main():
             # punishments have to be counted per Person
             # if the Verdict is guilty, the punishment for each Person in the Charge is counted for each Offence
 
+            # Update offence full infos
             for charge in trial.charges:
                 for offence in charge.offence:
                     offence_key = (offence.category, offence.subcategory)
-                    current_data = offence_summaries[offence_key]
 
-                    current_data.verdicts.update([
+                    # Generate full info
+                    verdict_df = pd.DataFrame({
+                        "trialId": [trial.id],
+                        "verdictCategory": [charge.verdict.category],
+                        "verdictSubcategory": [charge.verdict.subcategory]
+                    })
+                    for person in charge.defendant:
+                        person_df = pd.DataFrame({
+                            "defendantName": [person.name],
+                            "defendantAge": [person.age],
+                            "defendantGender": [person.gender],
+                            "defendantOccupation": [
+                                person.occupation
+                                if isinstance(person.occupation, str) or person.occupation is None
+                                else person.occupation.name
+                            ],
+                            "defendantWorkingClass": [(
+                                str(person.occupation.working_class)
+                                if isinstance(person.occupation, liboldbailey.process.Occupation)
+                                else "None"
+                            )],
+                            "defendantSkilled": [(
+                                str(person.occupation.skilled)
+                                if isinstance(person.occupation, liboldbailey.process.Occupation)
+                                else "None"
+                            )],
+                        })
+                        if charge.verdict.category == "guilty":
+                            punishments = [
+                                p
+                                for p in trial.punishments.values()
+                                if person in p.defendants
+                            ]
+                        else:
+                            # Add an empty punishment, otherwise the join won't produce results
+                            punishments = [liboldbailey.process.Punishment(
+                                id="",
+                                category="Not Guilty",
+                                subcategory=None,
+                                description="",
+                                defendants=[]
+                            )]
+                        punishments_df = pd.DataFrame({
+                            "punishmentCategory": [p.category for p in punishments],
+                            "punishmentSubcategory": [p.subcategory for p in punishments],
+                            "punishmentDescription": [p.description for p in punishments],
+                        })
+                        # person X punishments = a row for each permutation of person, punishment
+                        person_punishments_df = pd.merge(person_df, punishments_df, how="cross")
+                        # (person X punishments) X verdict = a row for each permutation of person, punishment with the same verdict info at the front
+                        person_punishments_verdict_df = pd.merge(verdict_df, person_punishments_df, how="cross")
+                        # Add that data to the full_infos
+                        offence_full_infos[offence_key] = pd.concat([
+                            offence_full_infos[offence_key],
+                            person_punishments_verdict_df
+                        ])
+
+                    # Generate summary
+                    offence_summary = offence_summaries[offence_key]
+                    offence_summary.verdicts.update([
                         (charge.verdict.category, charge.verdict.subcategory)
                     ])
-                    current_data.verdict_categories.update([
+                    offence_summary.verdict_categories.update([
                         charge.verdict.category
                     ])
-
                     # only count punishments for guilty verdicts
                     if charge.verdict.category != "guilty":
                         continue
                     for person in charge.defendant:
                         # if multiple punishments, count all of them?
-                        current_data.punishments.update(
+                        offence_summary.punishments.update(
                             [
                                 (p.category, p.subcategory)
                                 for p in trial.punishments.values()
@@ -177,10 +274,13 @@ def main():
             print(f"\t{n}\t|\t{punishment}")
     # done
 
+    # print(offence_full_infos[next(iter(offence_full_infos.keys()))])
+
     # Create excel sheet if requested
     if args.output_excel:
         writer = pd.ExcelWriter(args.output_excel, engine='xlsxwriter')
         write_summary_sheet(offence_summaries, writer, args.min_year, args.max_year)
+        write_full_sheets(offence_full_infos, writer)
         writer.save()
 
 if __name__ == '__main__':
