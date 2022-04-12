@@ -1,24 +1,16 @@
-import argparse
 import os
 from pathlib import Path
-from typing import DefaultDict, List,Optional,Dict, Set
+from typing import List, Optional, Dict
 import re
 from dataclasses import dataclass
-import dataclasses
 from datetime import datetime
 from bs4 import BeautifulSoup
 from multiprocessing import Pool
-from enum import Enum
-import json
-from collections import Counter, defaultdict
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
-MIN_VICTORIAN_YEAR=1833
-MAX_VICTORIAN_YEAR=1913
-
-def find_victorian_files(dir: str) -> List[Path]:
+def find_victorian_files(dir: str, min_year: int, max_year: int) -> List[Path]:
     import glob
     potential_xmls = glob.glob(str(Path(dir) / "*.xml"))
     xml_year_re = re.compile(r'(\d\d\d\d)[\w]+\.xml')
@@ -30,8 +22,8 @@ def find_victorian_files(dir: str) -> List[Path]:
         m = xml_year_re.match(xml_path.name)
         if m:
             year = int(m.group(1))
-            if year >= MIN_VICTORIAN_YEAR and \
-                year <= MAX_VICTORIAN_YEAR:
+            if year >= min_year and \
+                year <= max_year:
                 victorian_files.append(xml_path)
     
     return sorted(victorian_files)
@@ -378,73 +370,19 @@ def parse_xml(xml_path: Path) -> List[TrialData]:
 
     return trial_datas
 
-def main():
-    p = argparse.ArgumentParser("process.py", description="Tool for processing Old Bailey data into a spreadsheet")
-    p.add_argument("data_xml_folder", type=str)
-    # p.add_argument("primary_key", type=str, choices=["defendant","accuser"])
-    p.add_argument("--occupation_csv", type=str)
+def process_data_xml_folder_to_trials_per_date(data_xml_folder: str, min_year: int, max_year: int) -> Dict[datetime.date, List[TrialData]]:
+    if not os.path.isdir(data_xml_folder):
+        raise RuntimeError(f"Data path {data_xml_folder} is not a directory")
 
-    args = p.parse_args()
-
-    if not os.path.isdir(args.data_xml_folder):
-        raise argparse.ArgumentException(f"Data path {args.data_xml_folder} is not a directory")
-
-    files = find_victorian_files(args.data_xml_folder)
-
-    # trials_first = parse_xml(files[0])
-    # pp.pprint(dataclasses.asdict(trials_first[0]))
+    files = find_victorian_files(data_xml_folder, min_year, max_year)
 
     # Create the list of trials performed on each date
     with Pool(8) as p:
-        trials_per_date = p.map(parse_xml, files)
+        trials_list_per_date = p.map(parse_xml, files)
 
-    total = 0
-    skipped = 0
-    corrected = 0
-    d_occupations_per_year: DefaultDict[int, int] = defaultdict(lambda: 0)
-    occupations: Counter[Optional[str]] = Counter()
-    for trials in trials_per_date:
-        # Find the first year in which a defendant gave an occupation
-        trial_year = next(t.date.year for t in trials if t is not None)
-        if trial_year >= 1906:
-            d_occupations_per_year[trial_year] += sum(
-                bool(d.occupation)
-                for t in trials
-                if t is not None
-                for d in t.defendants.values()
-            )
+    trials_per_date = {
+        next(t.date for t in trials if t is not None): trials
+        for trials in trials_list_per_date
+    }
 
-            occupations.update(
-                p.occupation
-                for t in trials if t is not None
-                for p in t.defendants.values() if p is not None
-            )
-            occupations.update(
-                p.occupation
-                for t in trials if t is not None
-                for p in t.victims.values() if p is not None
-            )
-
-        for trial in trials:
-            total += 1
-            if trial is None:
-                skipped += 1
-            elif trial.corrected:
-                corrected += 1
-
-    print(f"Final Report:\n\tTotal Trials found: {total}\n\tCorrected (see log): {corrected}\n\tSkipped (see log): {skipped}\n\tSuccess(%): {100 - 100*(skipped/total)}")
-    # print(trials_per_date[0][0])
-    print(d_occupations_per_year)
-
-    if args.occupation_csv:
-        with open(args.occupation_csv, "w") as f:
-            f.write("Occupation,Occurrences\n")
-            for o, n in occupations.most_common():
-                if not o or o == "No Occupation":
-                    # e.g. o is None, '', etc.
-                    continue
-                f.write(f"{o},{n}\n")
-    # print("\n".join(occupations.most_common()))
-
-if __name__ == '__main__':
-    main()
+    return trials_per_date
