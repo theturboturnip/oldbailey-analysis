@@ -1,11 +1,13 @@
+from functools import partial
 import os
 from pathlib import Path
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Union
 import re
 from dataclasses import dataclass
 from datetime import datetime
 from bs4 import BeautifulSoup
 from multiprocessing import Pool
+import pandas
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -34,13 +36,19 @@ def normalize_text_titlecase(text: str):
     return normalize_text(text).title()
 
 @dataclass
+class Occupation:
+    name: str
+    working_class: Optional[bool]
+    skilled: Optional[bool]
+
+@dataclass
 class Person:
     # <persName...
     name: str
     id: str
     gender: Optional[str]
     age: Optional[int]
-    occupation: Optional[str]
+    occupation: Optional[Union[str, Occupation]]
 
 @dataclass
 class Offence:
@@ -87,7 +95,7 @@ class TrialData:
 
 # Returns None if some element is inconclusive
 # e.g. t18520405-345: an indictment for perjury, which didn't have a valid "verdict"
-def parse_trial_tag(trial_tag, special_correction=True) -> Optional[TrialData]:
+def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_correction=True) -> Optional[TrialData]:
     # Trial date is in it's own tag
     date_tag = trial_tag.find("interp", type="date", recursive=False)
     date = datetime.strptime(date_tag["value"], "%Y%m%d").date()
@@ -123,6 +131,8 @@ def parse_trial_tag(trial_tag, special_correction=True) -> Optional[TrialData]:
 
         occupation_tag = p.find("interp", inst=id, type="occupation")
         occupation = normalize_text_titlecase(occupation_tag["value"]) if occupation_tag else None
+        if occupation in occupation_dict:
+            occupation = occupation_dict[occupation]
 
         new_person = Person(
             id=id,
@@ -352,7 +362,7 @@ def parse_trial_tag(trial_tag, special_correction=True) -> Optional[TrialData]:
         charges=charges
     )
 
-def parse_xml(xml_path: Path) -> List[TrialData]:
+def parse_xml(xml_path: Path, occupation_dict: Dict[str, Occupation]) -> List[TrialData]:
     # Get BeautifulSoup for file
     with open(xml_path, 'r') as tei_xml:
         soup = BeautifulSoup(tei_xml, 'lxml')
@@ -363,14 +373,14 @@ def parse_xml(xml_path: Path) -> List[TrialData]:
     for trial_tag in trial_tags:
         # Add the set of trial datas
         try:
-            trial_datas.append(parse_trial_tag(trial_tag))
+            trial_datas.append(parse_trial_tag(trial_tag, occupation_dict))
         except (ValueError, KeyError, AssertionError) as ex:
             raise RuntimeError(f"Parse error in XML {xml_path}") from ex
             # print(f"Parse error in XML {xml_path}: {ex}")
 
     return trial_datas
 
-def process_data_xml_folder_to_trials_per_date(data_xml_folder: str, min_year: int, max_year: int) -> Dict[datetime.date, List[TrialData]]:
+def process_data_xml_folder_to_trials_per_date(data_xml_folder: str, min_year: int, max_year: int, occupation_dict: Dict[str, Occupation]) -> Dict[datetime.date, List[TrialData]]:
     if not os.path.isdir(data_xml_folder):
         raise RuntimeError(f"Data path {data_xml_folder} is not a directory")
 
@@ -378,7 +388,10 @@ def process_data_xml_folder_to_trials_per_date(data_xml_folder: str, min_year: i
 
     # Create the list of trials performed on each date
     with Pool(8) as p:
-        trials_list_per_date = p.map(parse_xml, files)
+        trials_list_per_date = p.map(
+            partial(parse_xml, occupation_dict=occupation_dict),
+            files,
+        )
 
     trials_per_date = {
         next(t.date for t in trials if t is not None): trials
@@ -386,3 +399,32 @@ def process_data_xml_folder_to_trials_per_date(data_xml_folder: str, min_year: i
     }
 
     return trials_per_date
+
+def parse_occupation_csv(occupation_csv_file: str) -> Dict[str, Occupation]:
+    df = pandas.read_csv(occupation_csv_file)
+    occupation_dict = {}
+    for (occ_name, working_class, skilled) in zip(df["Occupation"], df["class"], df["skilled"]):
+        if occ_name is None:
+            continue
+        occ_name = str(occ_name)
+        # quick validity check - occupation name must contain at least one letter
+        if not re.search('[a-zA-Z]', occ_name):
+            continue
+        occupation_dict[occ_name] = Occupation(
+            name=occ_name,
+            working_class=(
+                str(working_class).lower().strip() == "w"
+                if working_class is not None
+                else None
+            ),
+            skilled=(
+                True
+                if str(skilled).lower().strip() == "y"
+                else (
+                    False
+                    if str(skilled).lower().strip() == "n"
+                    else None
+                )
+            )
+        )
+    return occupation_dict

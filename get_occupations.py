@@ -15,7 +15,8 @@ def main():
     trials_per_date = \
         liboldbailey.process.process_data_xml_folder_to_trials_per_date(
             args.data_xml_folder, 
-            args.min_year, args.max_year
+            args.min_year, args.max_year,
+            {}
         )
 
     total = 0
