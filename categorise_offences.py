@@ -6,8 +6,8 @@ import liboldbailey.process
 
 @dataclass
 class OffenceStats:
-    n_guilty: int
-    n_not_guilty: int
+    verdict_categories: 'Counter[str]'
+    verdicts: 'Counter[Tuple[str, Optional[str]]]'
     numerical_values: List[int]
     punishments: 'Counter[Tuple[str, Optional[str]]]'
 
@@ -35,8 +35,8 @@ def main():
     offence_stats: Dict[Tuple[str,Optional[str]], OffenceStats] = \
         defaultdict(
             lambda: OffenceStats(
-                n_guilty = 0,
-                n_not_guilty = 0,
+                verdict_categories = Counter(),
+                verdicts = Counter(),
                 numerical_values = [],
                 punishments = Counter()
             )
@@ -55,38 +55,40 @@ def main():
             # if the Verdict is guilty, the punishment for each Person in the Charge is counted for each Offence
 
             for charge in trial.charges:
-                # Ignore "miscVerdict" and "specialVerdict"
-                is_guilty = None
-                if charge.verdict.category == "guilty":
-                    is_guilty = True
-                elif charge.verdict.category == "notGuilty":
-                    is_guilty = False
-                else:
-                    continue
-
                 for offence in charge.offence:
                     offence_key = (offence.category, offence.subcategory)
                     current_data = offence_stats[offence_key]
-                    for person in charge.defendant:
-                        if is_guilty:
-                            current_data.n_guilty += 1
-                        else:
-                            current_data.n_not_guilty += 1
 
-                        punishments = [p for p in trial.punishments.values() if person in p.defendants]
+                    current_data.verdicts.update([
+                        (charge.verdict.category, charge.verdict.subcategory)
+                    ])
+                    current_data.verdict_categories.update([
+                        charge.verdict.category
+                    ])
+
+                    # only count punishments for guilty verdicts
+                    if charge.verdict.category != "guilty":
+                        continue
+                    for person in charge.defendant:
                         # if multiple punishments, count all of them?
-                        for punishment in punishments:
-                            current_data.punishments.update(
-                                [(punishment.category, punishment.subcategory)]
-                            )
+                        current_data.punishments.update(
+                            [
+                                (p.category, p.subcategory)
+                                for p in trial.punishments.values()
+                                if person in p.defendants
+                            ]
+                        )
     
     # Now finished building offence_stats
     # print them!
     for offence_key in sorted(offence_stats.keys()):
         print(offence_key)
         offence_stat = offence_stats[offence_key]
-        print(f"guilty:\t{offence_stat.n_guilty}\tnot guilty:\t{offence_stat.n_not_guilty}")
-        print("Punishments")
+        print(f"guilty:\t{offence_stat.verdict_categories['guilty']}\tnot guilty:\t{offence_stat.verdict_categories['notGuilty']}")
+        print("Verdicts")
+        for verdict, n in offence_stat.verdicts.most_common():
+            print(f"\t{n}\t|\t{verdict}")
+        print("Punishments (guilty verdicts only)")
         for punishment, n in offence_stat.punishments.most_common():
             print(f"\t{n}\t|\t{punishment}")
     # done
