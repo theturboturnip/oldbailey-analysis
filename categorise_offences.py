@@ -279,7 +279,7 @@ def main():
     # Create excel sheet if requested
     if args.output_excel:
         writer = pd.ExcelWriter(args.output_excel, engine='xlsxwriter')
-        write_summary_sheet(offence_summaries, writer, args.min_year, args.max_year)
+        write_summary_sheet(offence_summaries, writer, args.min_year, args.max_year, False)
         write_full_sheets(offence_full_infos, writer)
         writer.save()
 
