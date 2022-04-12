@@ -9,3 +9,4 @@ Setup a venv with
 - beautifulsoup4
 - lxml
 - pandas
+- xlsxwriter
