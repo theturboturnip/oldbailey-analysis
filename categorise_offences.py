@@ -16,7 +16,7 @@ class OffenceSummary:
     numerical_values: List[int]
     punishments: 'Counter[CategorySubcategory]'
 
-def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], writer: pd.ExcelWriter, min_year: int, max_year: int):
+def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], writer: pd.ExcelWriter, min_year: int, max_year: int, category_on_one_row: bool = True):
     # Based on https://datascience.stackexchange.com/a/46451
     workbook = writer.book
     worksheet = workbook.add_worksheet("Summary")
@@ -84,11 +84,15 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
                 }
             )
 
-            current_column += 4
+            if category_on_one_row:
+                current_column += 4
+                group_end_rows.append(punishment_row + 2)
+            else:
+                current_column = 0
+                current_start_row = punishment_row + 2
 
-            group_end_rows.append(punishment_row + 2)
-
-        current_start_row = max(group_end_rows)
+        if category_on_one_row:
+            current_start_row = max(group_end_rows)
 
 def main():
     p = argparse.ArgumentParser("get_occupations.py", description="Tool for processing Old Bailey data into a spreadsheet")
