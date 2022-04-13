@@ -244,16 +244,18 @@ def main():
 
                     # Generate summary
                     offence_summary = offence_summaries[offence_key]
-                    offence_summary.verdicts.update([
-                        (charge.verdict.category, charge.verdict.subcategory)
-                    ])
-                    offence_summary.verdict_categories.update([
-                        charge.verdict.category
-                    ])
-                    # only count punishments for guilty verdicts
-                    if charge.verdict.category != "guilty":
-                        continue
+                    # count verdicts for each defendant, so the summary is consistent with the columns in offence_full_infos.
+                    # COUNTIF(<verdict_column>, "guilty") should be == summary.guiltyverdicts
                     for person in charge.defendant:
+                        offence_summary.verdicts.update([
+                            (charge.verdict.category, charge.verdict.subcategory)
+                        ])
+                        offence_summary.verdict_categories.update([
+                            charge.verdict.category
+                        ])
+                        # only count punishments for guilty verdicts
+                        if charge.verdict.category != "guilty":
+                            continue
                         # if multiple punishments, count all of them?
                         offence_summary.punishments.update(
                             [
