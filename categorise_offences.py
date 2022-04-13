@@ -157,7 +157,7 @@ def main():
         defaultdict(
             lambda: pd.DataFrame(
                 columns = [
-                    "trialId", "offenceHighSeas",
+                    "trialId", "trialDate", "offenceHighSeas",
                     "verdictCategory", "verdictSubcategory",
                     "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
                     "defendantName", "defendantAge", "defendantGender", "defendantOccupation",
@@ -186,6 +186,7 @@ def main():
                     # Generate full info
                     verdict_df = pd.DataFrame({
                         "trialId": [trial.id],
+                        "trialDate": [trial.date],
                         "offenceHighSeas": ["high seas" in offence.description.lower()],
                         "verdictCategory": [charge.verdict.category],
                         "verdictSubcategory": [charge.verdict.subcategory]
