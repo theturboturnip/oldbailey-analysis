@@ -16,7 +16,7 @@ class OffenceSummary:
     numerical_values: List[int]
     punishments: 'Counter[CategorySubcategory]'
 
-def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], writer: pd.ExcelWriter, min_year: int, max_year: int, category_on_one_row: bool = True):
+def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], writer: pd.ExcelWriter, stats: List[Tuple[str, int]], category_on_one_row: bool = True):
     # Based on https://datascience.stackexchange.com/a/46451
     workbook = writer.book
     worksheet = workbook.add_worksheet("Summary")
@@ -24,13 +24,17 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
 
     # First, write some generic stats
     worksheet.write_string(0, 0, "Offence Summary")
-    worksheet.write_string(1, 0, "Start Year")
-    worksheet.write_number(1, 1, min_year)
-    worksheet.write_string(2, 0, "End Year")
-    worksheet.write_number(2, 1, max_year)
-
     # Keep track of the first row for the current offences summmary
-    current_start_row = 4
+    current_start_row = 1
+    # Write out statistics
+    for name, val in stats:
+        worksheet.write_string(current_start_row, 0, name)
+        worksheet.write_number(current_start_row, 1, val)
+        current_start_row += 1
+
+    # Add spacing between statistics and summaries
+    current_start_row += 1
+
     # Put each category on the same set of rows, with a new column for each subcategory
     for category, offence_keys in groupby(sorted(summaries.keys()), lambda k: k[0]):
         current_column = 0
@@ -43,15 +47,15 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
             worksheet.write_string(current_start_row, current_column + 1, str(offence_key[1]))
 
             # Write the guilty/not guilty breakdown
-            worksheet.write_string(current_start_row + 1, current_column + 0, "Guilty Verdicts: ")
-            worksheet.write_number(current_start_row + 1, current_column + 1, offence_summary.verdict_categories['guilty'])
-            worksheet.write_string(current_start_row + 2, current_column + 0, "Not Guilty Verdicts: ")
-            worksheet.write_number(current_start_row + 2, current_column + 1, offence_summary.verdict_categories['notGuilty'])
+            worksheet.write_string(current_start_row + 1, current_column + 0, "Verdicts")
+            worksheet.write_string(current_start_row + 2, current_column + 0, "Guilty Verdicts: ")
+            worksheet.write_number(current_start_row + 2, current_column + 1, offence_summary.verdict_categories['guilty'])
+            worksheet.write_string(current_start_row + 3, current_column + 0, "Not Guilty Verdicts: ")
+            worksheet.write_number(current_start_row + 3, current_column + 1, offence_summary.verdict_categories['notGuilty'])
 
             # Write the full verdict breakdown
-            worksheet.write_string(current_start_row + 4, current_column + 0, "Verdict Breakdown: ")
             # Start one row ahead, so we can write the table headers in
-            verdict_row = current_start_row + 6
+            verdict_row = current_start_row + 5
             for verdict, n in offence_summary.verdicts.most_common():
                 worksheet.write_string(verdict_row, current_column + 0, verdict[0])
                 worksheet.write_string(verdict_row, current_column + 1, str(verdict[1]))
@@ -59,7 +63,7 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
                 verdict_row += 1
             # Make it a table
             worksheet.add_table(
-                current_start_row + 5, current_column + 0,
+                current_start_row + 4, current_column + 0,
                 verdict_row, current_column + 2,
                 {
                     'columns': [{'header': "Category"}, {'header': "Subcategory"}, {'header': "Count"}]
@@ -165,10 +169,18 @@ def main():
                 ]
             )
         )
+
+    total = 0
+    skipped = 0
+    corrected = 0
     for date, trials in trials_per_date.items():
         for trial in trials:
+            total += 1
             if trial is None:
+                skipped += 1
                 continue
+            elif trial.corrected:
+                corrected += 1
 
             # Count stats for each Offence for each Person in each Charge
             # if a Charge has multiple Offences, 
@@ -287,7 +299,14 @@ def main():
     # Create excel sheet if requested
     if args.output_excel:
         writer = pd.ExcelWriter(args.output_excel, engine='xlsxwriter')
-        write_summary_sheet(offence_summaries, writer, args.min_year, args.max_year, False)
+        stats = [
+            ("Start Year", args.min_year),
+            ("End Year", args.max_year),
+            ("Total Trials", total),
+            ("Malformed Trials (skipped)", skipped),
+            ("Malformed Trials (corrected)", corrected),
+        ]
+        write_summary_sheet(offence_summaries, writer, stats, False)
         write_full_sheets(offence_full_infos, writer)
         writer.save()
 
