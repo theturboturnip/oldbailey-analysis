@@ -113,7 +113,8 @@ def write_full_sheets(offence_full_infos: Dict[CategorySubcategory, pd.DataFrame
         writer.sheets[offence_sheet_name] = worksheet
         # https://xlsxwriter.readthedocs.io/working_with_pandas.html
         # write out sheet without header
-        df = offence_full_infos[offence_key]
+        # duplicates can show up if e.g. two offences of the same type are charged with a single punishment
+        df = offence_full_infos[offence_key].drop_duplicates()
         df.to_excel(writer, sheet_name=offence_sheet_name, startrow=1, startcol=0, header=False, index=False)
         # Add table, which adds its own header
         column_settings = [{'header': column} for column in df.columns]
