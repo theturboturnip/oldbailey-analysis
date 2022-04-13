@@ -157,7 +157,7 @@ def main():
         defaultdict(
             lambda: pd.DataFrame(
                 columns = [
-                    "trialId", "trialDate", "offenceHighSeas",
+                    "trialId", "trialDate", "highSeas",
                     "verdictCategory", "verdictSubcategory",
                     "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
                     "defendantName", "defendantAge", "defendantGender", "defendantOccupation",
@@ -187,7 +187,7 @@ def main():
                     info_dict = {
                         "trialId": [trial.id],
                         "trialDate": [trial.date],
-                        "offenceHighSeas": ["high seas" in offence.description.lower()],
+                        "highSeas": [str("high seas" in offence.description.lower())],
                         "verdictCategory": [charge.verdict.category],
                         "verdictSubcategory": [charge.verdict.subcategory]
                     }
