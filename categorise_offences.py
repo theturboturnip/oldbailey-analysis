@@ -156,7 +156,7 @@ def main():
         defaultdict(
             lambda: pd.DataFrame(
                 columns = [
-                    "trialId",
+                    "trialId", "offenceHighSeas",
                     "verdictCategory", "verdictSubcategory",
                     "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
                     "defendantName", "defendantAge", "defendantGender", "defendantOccupation",
@@ -185,6 +185,7 @@ def main():
                     # Generate full info
                     verdict_df = pd.DataFrame({
                         "trialId": [trial.id],
+                        "offenceHighSeas": ["high seas" in offence.description.lower()],
                         "verdictCategory": [charge.verdict.category],
                         "verdictSubcategory": [charge.verdict.subcategory]
                     })
@@ -219,7 +220,7 @@ def main():
                             # Add an empty punishment, otherwise the join won't produce results
                             punishments = [liboldbailey.process.Punishment(
                                 id="",
-                                category="Not Guilty",
+                                category="Not Punished",
                                 subcategory=None,
                                 description="",
                                 defendants=[]
@@ -273,8 +274,6 @@ def main():
         for punishment, n in offence_stat.punishments.most_common():
             print(f"\t{n}\t|\t{punishment}")
     # done
-
-    # print(offence_full_infos[next(iter(offence_full_infos.keys()))])
 
     # Create excel sheet if requested
     if args.output_excel:

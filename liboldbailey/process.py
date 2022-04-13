@@ -56,6 +56,7 @@ class Offence:
     id: str
     category: str
     subcategory: Optional[str]
+    description: str
     victims: List[Person] # <join result="offenceVictim"...
 
 @dataclass
@@ -179,6 +180,7 @@ def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_c
             id=id,
             category=category,
             subcategory=subcategory,
+            description=normalize_text_titlecase(o.getText()),
             victims=offence_victims
         )
         if id in offences and new_offence != offences[id]:
