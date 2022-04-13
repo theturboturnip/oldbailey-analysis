@@ -297,7 +297,8 @@ def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_c
     #   the Verdict of whether some Defendants committed some Offences
     # Defendant-Offence-Verdict join = space-separated list of (defendant IDs), (punishment IDs)
     charge_join_tags = trial_tag.find_all("join", result="criminalCharge")
-    charge_joins = [cjt["targets"].split() for cjt in charge_join_tags]
+    # Remove duplicate charges
+    charge_joins = set(tuple(sorted(cjt["targets"].split())) for cjt in charge_join_tags)
     charges = []
     for charge_join in charge_joins:
         charge_verdicts = [verdicts[v_id] for v_id in charge_join if v_id in verdicts]
@@ -305,6 +306,7 @@ def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_c
         if len(charge_verdicts) == 0:
             # Some charge was inconclusive
             # e.g. t18520405-345: an indictment for perjury, which didn't have a valid "verdict"
+            # Should be fine to correct this in all cases
             if len(verdicts) == 1:
                 charge_verdicts = [next(iter(verdicts.values()))]
                 print(f"[warn] Trial {trial_id} had a charge {charge_join} with no valid verdict, correcting...")
@@ -318,9 +320,10 @@ def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_c
         charge_defendants = [defendants[p_id] for p_id in charge_join if p_id in defendants]
         if len(charge_defendants) == 0:
             # Some charge was inconclusive
-            if len(defendants) == 1:
+            # If it was the only charge, try to correct it:
+            if len(defendants) == 1 and len(charge_joins) == 1:
                 charge_defendants = [next(iter(defendants.values()))]
-                print(f"[warn] Trial {trial_id} had a charge {charge_join} with no valid defendant, correcting...")
+                print(f"[warn] Trial {trial_id} had a single charge {charge_join} which had no valid defendant, correcting...")
                 corrected = True
             else:
                 print(f"[fail] Trial {trial_id} had a charge {charge_join} with no valid defendant, skipping...")
@@ -329,9 +332,10 @@ def parse_trial_tag(trial_tag, occupation_dict: Dict[str, Occupation], special_c
         charge_offences = [offences[o_id] for o_id in charge_join if o_id in offences]
         if len(charge_offences) == 0:
             # Some charge was inconclusive
-            if len(offences) == 1:
+            # If it was the only charge, try to correct it:
+            if len(offences) == 1 and len(charge_joins) == 1:
                 charge_offences = [next(iter(offences.values()))]
-                print(f"[warn] Trial {trial_id} had a charge {charge_join} with no valid offence, correcting...")
+                print(f"[warn] Trial {trial_id} had a single charge {charge_join} which had no valid offence, correcting...")
                 corrected = True
             else:
                 print(f"[fail] Trial {trial_id} had a charge {charge_join} with no valid offence, skipping...")
