@@ -184,13 +184,18 @@ def main():
                     offence_key = (offence.category, offence.subcategory)
 
                     # Generate full info
-                    verdict_df = pd.DataFrame({
+                    info_dict = {
                         "trialId": [trial.id],
                         "trialDate": [trial.date],
                         "offenceHighSeas": ["high seas" in offence.description.lower()],
                         "verdictCategory": [charge.verdict.category],
                         "verdictSubcategory": [charge.verdict.subcategory]
+                    }
+                    info_dict.update({
+                        f"victimGender{i}": v.gender
+                        for i, v in enumerate(offence.victims)
                     })
+                    verdict_df = pd.DataFrame(info_dict)
                     for person in charge.defendant:
                         person_df = pd.DataFrame({
                             "defendantName": [person.name],
