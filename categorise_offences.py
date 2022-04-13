@@ -52,10 +52,12 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
             worksheet.write_number(current_start_row + 2, current_column + 1, offence_summary.verdict_categories['guilty'])
             worksheet.write_string(current_start_row + 3, current_column + 0, "Not Guilty Verdicts: ")
             worksheet.write_number(current_start_row + 3, current_column + 1, offence_summary.verdict_categories['notGuilty'])
+            worksheet.write_string(current_start_row + 4, current_column + 0, "Misc Verdicts: ")
+            worksheet.write_number(current_start_row + 4, current_column + 1, offence_summary.verdict_categories['miscVerdict'])
 
             # Write the full verdict breakdown
             # Start one row ahead, so we can write the table headers in
-            verdict_row = current_start_row + 5
+            verdict_row = current_start_row + 6
             for verdict, n in offence_summary.verdicts.most_common():
                 worksheet.write_string(verdict_row, current_column + 0, verdict[0])
                 worksheet.write_string(verdict_row, current_column + 1, str(verdict[1]))
@@ -63,7 +65,7 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
                 verdict_row += 1
             # Make it a table
             worksheet.add_table(
-                current_start_row + 4, current_column + 0,
+                current_start_row + 5, current_column + 0,
                 verdict_row, current_column + 2,
                 {
                     'columns': [{'header': "Category"}, {'header': "Subcategory"}, {'header': "Count"}]
@@ -261,26 +263,29 @@ def main():
 
                     # Generate summary
                     offence_summary = offence_summaries[offence_key]
-                    # count verdicts for each defendant, so the summary is consistent with the columns in offence_full_infos.
+                    # count verdicts for each punishment for each defendant, so the summary is consistent with the columns in offence_full_infos.
                     # COUNTIF(<verdict_column>, "guilty") should be == summary.guiltyverdicts
                     for person in charge.defendant:
-                        offence_summary.verdicts.update([
-                            (charge.verdict.category, charge.verdict.subcategory)
-                        ])
-                        offence_summary.verdict_categories.update([
-                            charge.verdict.category
-                        ])
                         # only count punishments for guilty verdicts
-                        if charge.verdict.category != "guilty":
-                            continue
-                        # if multiple punishments, count all of them?
-                        offence_summary.punishments.update(
-                            [
+                        if charge.verdict.category == "guilty":
+                            punishments = [
                                 (p.category, p.subcategory)
                                 for p in trial.punishments.values()
                                 if person in p.defendants
                             ]
+                        else:
+                            punishments = [("Not Guilty/Misc", None)]
+                        # if multiple punishments, count all of them?
+                        offence_summary.punishments.update(
+                            punishments
                         )
+                        # count each verdict for each punishment
+                        offence_summary.verdicts.update([
+                            (charge.verdict.category, charge.verdict.subcategory)
+                        ] * len(punishments))
+                        offence_summary.verdict_categories.update([
+                            charge.verdict.category
+                        ] * len(punishments))
     
     # Now finished building offence_summaries
     # print them!
