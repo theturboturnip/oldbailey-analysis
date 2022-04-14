@@ -100,6 +100,23 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
         if category_on_one_row:
             current_start_row = max(group_end_rows)
 
+def write_combined_sheet(full_sheet: pd.DataFrame, writer: pd.ExcelWriter):
+    workbook = writer.book
+    offence_sheet_name = f"All Offences"
+
+    # Make the sheet manually, write the dataframe out and add a proper table
+    worksheet = workbook.add_worksheet(offence_sheet_name)
+    writer.sheets[offence_sheet_name] = worksheet
+    # https://xlsxwriter.readthedocs.io/working_with_pandas.html
+    # write out sheet without header
+    # duplicates can show up if e.g. two offences of the same type are charged with a single punishment
+    df = full_sheet.drop_duplicates()
+    df.to_excel(writer, sheet_name=offence_sheet_name, startrow=1, startcol=0, header=False, index=False)
+    # Add table, which adds its own header
+    column_settings = [{'header': column} for column in df.columns]
+    (max_row, max_col) = df.shape
+    worksheet.add_table(0, 0, max_row, max_col - 1, {'columns': column_settings})
+
 def write_full_sheets(offence_full_infos: Dict[CategorySubcategory, pd.DataFrame], writer: pd.ExcelWriter):
     workbook = writer.book
     for offence_key in sorted(offence_full_infos.keys()):
@@ -163,6 +180,7 @@ def main():
         defaultdict(
             lambda: pd.DataFrame(
                 columns = [
+                    "offenceCategory", "offenceSubcategory",
                     "trialId", "trialYear", "highSeas",
                     "verdictCategory", "verdictSubcategory",
                     "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
@@ -199,6 +217,8 @@ def main():
 
                     # Generate full info
                     info_dict = {
+                        "offenceCategory": offence.category,
+                        "offenceSubcategory": offence.subcategory,
                         "trialId": [trial.id],
                         "trialYear": [trial.date.year],
                         "highSeas": [str("high seas" in offence.description.lower())],
@@ -312,6 +332,13 @@ def main():
             ("Malformed Trials (corrected)", corrected),
         ]
         write_summary_sheet(offence_summaries, writer, stats, False)
+        write_combined_sheet(
+            pd.concat([
+                offence_full_infos[offence_key]
+                for offence_key in sorted(offence_full_infos.keys())
+            ]),
+            writer
+        )
         write_full_sheets(offence_full_infos, writer)
         writer.save()
 
