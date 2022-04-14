@@ -163,7 +163,7 @@ def main():
         defaultdict(
             lambda: pd.DataFrame(
                 columns = [
-                    "trialId", "trialDate", "highSeas",
+                    "trialId", "trialYear", "highSeas",
                     "verdictCategory", "verdictSubcategory",
                     "punishmentCategory", "punishmentSubcategory", "punishmentDescription",
                     "defendantName", "defendantAge", "defendantGender", "defendantOccupation",
@@ -200,7 +200,7 @@ def main():
                     # Generate full info
                     info_dict = {
                         "trialId": [trial.id],
-                        "trialDate": [trial.date],
+                        "trialYear": [trial.date.year],
                         "highSeas": [str("high seas" in offence.description.lower())],
                         "verdictCategory": [charge.verdict.category],
                         "verdictSubcategory": [charge.verdict.subcategory]
