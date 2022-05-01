@@ -13,6 +13,8 @@ def generate_units() -> Dict[str, float]:
         "week": 1.0/4.5,
         "month": 1.0,
         "year": 12.0,
+        # year -> tear is a common mispelling
+        "tear": 12.0,
     }
 
     return unit_to_month
