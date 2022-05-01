@@ -11,10 +11,42 @@ def generate_units() -> Dict[str, float]:
     unit_to_month = {
         "day": 1.0/31.0,
         "week": 1.0/4.5,
+        "fortnight": 2.0/4.5,
         "month": 1.0,
         "year": 12.0,
         # year -> tear is a common mispelling
         "tear": 12.0,
+        "yean": 12.0,
+        "fear": 12.0,
+        "gear": 12.0,
+        "yew": 12.0,
+        "yer": 12.0,
+        "yea": 12.0,
+        "yar": 12.0,
+        "yew": 12.0,
+        "pear": 12.0,
+        # month mispellings
+        "monty": 1.0,
+        "menthe": 1.0,
+        "montli": 1.0,
+        "monti": 1.0,
+        "mont": 1.0,
+        "moth": 1.0,
+        "mouth": 1.0,
+        "moath": 1.0,
+        "onth": 1.0,
+        "monlhi": 1.0,
+        "monllh": 1.0,
+        "monihi": 1.0,
+        "calendar month": 1.0,
+        "montil": 1.0,
+        "morth": 1.0,
+        "mother": 1.0,
+        # weel misspellings
+        "veek": 1.0/4.5,
+        # day misspellings
+        "dap": 1.0/31.0,
+        "bay": 1.0/31.0,
     }
 
     return unit_to_month
