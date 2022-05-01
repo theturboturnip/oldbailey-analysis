@@ -198,6 +198,7 @@ if __name__ == '__main__':
         data = pd.read_csv(f, names=["sentence","occurrences"], usecols=[0,1])
 
     data = data.dropna()
+    data.drop(data[data["sentence"] == "Grand Total"].index, inplace=True)
     print(data)
 
     # Generate helper dictionaries and regexes
@@ -208,15 +209,19 @@ if __name__ == '__main__':
         for sentence, occurrences in zip(data['sentence'], data['occurrences'])
     ]
 
-    total_occurrences = sum(data['occurrences'])
+    total_occurrences = data['occurrences'].sum()
     missed_occurrences = sum(
         r.occurrences
         for r in sentence_results
         if isinstance(r, SentenceParseError)
     )
+    n_errs = sum(1 for r in sentence_results if isinstance(r, SentenceParseError))
     print(f"Missed Occurrences\t{missed_occurrences}")
     print(f"Total Occurrences\t{total_occurrences}")
     print(f"Percentage Missed\t{missed_occurrences*100.0/total_occurrences}%")
+    print(f"Num Errors\t{n_errs}")
+    print(f"Total Rows\t{len(sentence_results)}")
+    print(f"Percentage Missed\t{n_errs*100.0/len(sentence_results)}%")
 
     output_data = {
         i: sentence_to_row(r)
