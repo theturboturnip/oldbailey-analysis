@@ -69,11 +69,6 @@ def generate_number_mappings() -> Dict[str, int]:
 def generate_num_regex_str(num_strs: Iterable[str]) -> str:
     return "(" + "|".join(num_strs) + ")"
 
-def generate_num_unit_regex(num_strs: Iterable[str], unit_re_str: str) -> Pattern:
-    num_unit_str = generate_num_regex_str(num_strs) + "\s+" + unit_re_str
-    print(num_unit_str)
-    return re.compile(num_unit_str, re.IGNORECASE)
-
 @dataclass
 class ParsedSentence:
     original_sentence: str
@@ -105,6 +100,10 @@ class Helpers:
     # Regex matching exactly one unit
     unit_re: Pattern
 
+    # Regex matching "Confined X units"
+    # Used as a special case for "Confined X units; Y units solitary" which would otherwise confuse the parser
+    confined_x_y_re: Pattern
+
     @staticmethod
     def generate() -> 'Helpers':
         unit_to_month = generate_units()
@@ -112,16 +111,47 @@ class Helpers:
         unit_re = re.compile(unit_re_str, flags=re.IGNORECASE)
 
         str_to_num = generate_number_mappings()
-        num_unit_re = generate_num_unit_regex(str_to_num.keys(), unit_re_str)
+        num_unit_str = generate_num_regex_str(str_to_num.keys()) + "\s+" + unit_re_str
+        num_unit_re = re.compile(num_unit_str, re.IGNORECASE)
 
+        confined_x_y_re = re.compile(r"^Confined\s+" + num_unit_str, re.IGNORECASE)
+        print(r"^Confined\s+" + num_unit_str)
 
         return Helpers(
             str_to_num=str_to_num,
             num_unit_re=num_unit_re,
 
             unit_to_month=unit_to_month,
-            unit_re=unit_re
+            unit_re=unit_re,
+
+            confined_x_y_re=confined_x_y_re,
         )
+
+
+def parse_confined_x_y_sentence(sentence: str, occurrences: int, helpers: Helpers) -> ParsedSentenceResult:
+    # Helper function for returning errors
+    def error(err: str) -> SentenceParseError:
+        print(f"[ERR] {sentence} : {err}")
+        return SentenceParseError(original_sentence=sentence, occurrences=occurrences, err=err)
+
+    match = helpers.confined_x_y_re.search(sentence)
+    if not match:
+        return error("Found multiple units, didn't fit Confined X; Y format")
+
+    extracted_phrase = match.group(0)
+    phrase_num = helpers.str_to_num[match.group(1).lower()]
+    phrase_unit = match.group(2).lower()
+    approx_months = helpers.unit_to_month[phrase_unit] * phrase_num
+
+    return ParsedSentence(
+        original_sentence=sentence,
+        occurrences=occurrences,
+
+        extracted_phrase=extracted_phrase,
+        phrase_num=phrase_num,
+        phrase_unit=phrase_unit,
+        approx_months=approx_months
+    )
 
 # Parse a single sentence.
 # If we could successfully identify a single length (e.g. "twenty-eight years") returns a ParsedSentence
@@ -138,6 +168,8 @@ def parse_sentence(sentence: str, occurrences: int, helpers: Helpers) -> ParsedS
     if not units:
         return error(f"Found no units")
     if len(units) > 1:
+        if sentence.lower().startswith("confined"):
+            return parse_confined_x_y_sentence(sentence, occurrences, helpers)
         return error(f"Found multiple units {units}, parse would be ambiguous")
 
     # There is exactly one unit
@@ -215,13 +247,25 @@ if __name__ == '__main__':
         for r in sentence_results
         if isinstance(r, SentenceParseError)
     )
+    missed_confined_occurrences = sum(
+        r.occurrences
+        for r in sentence_results
+        if isinstance(r, SentenceParseError) and r.original_sentence.startswith("Confined")
+    )
+    confined_err_rows = sum(1 for r in sentence_results if isinstance(r, SentenceParseError) and r.original_sentence.startswith("Confined"))
     n_errs = sum(1 for r in sentence_results if isinstance(r, SentenceParseError))
     print(f"Missed Occurrences\t{missed_occurrences}")
     print(f"Total Occurrences\t{total_occurrences}")
     print(f"Percentage Missed\t{missed_occurrences*100.0/total_occurrences}%")
+    print(f"Missed Confined Occurrences\t{missed_confined_occurrences}")
+    print(f"Total Confined Occurrences\t{total_occurrences}")
+    print(f"Percentage Missed\t{missed_confined_occurrences*100.0/total_occurrences}%")
     print(f"Num Errors\t{n_errs}")
     print(f"Total Rows\t{len(sentence_results)}")
     print(f"Percentage Missed\t{n_errs*100.0/len(sentence_results)}%")
+    print(f"Num Confined Errors\t{confined_err_rows}")
+    print(f"Total Rows\t{len(sentence_results)}")
+    print(f"Percentage Missed\t{confined_err_rows*100.0/len(sentence_results)}%")
 
     output_data = {
         i: sentence_to_row(r)
