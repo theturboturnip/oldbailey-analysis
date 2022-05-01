@@ -130,13 +130,13 @@ class Helpers:
         )
 
 
-def parse_confined_x_y_sentence(sentence: str, occurrences: int, helpers: Helpers) -> ParsedSentenceResult:
+def parse_confined_x_y_sentence(original_sentence: str, safe_sentence: str, occurrences: int, helpers: Helpers) -> ParsedSentenceResult:
     # Helper function for returning errors
     def error(err: str) -> SentenceParseError:
-        print(f"[ERR] {sentence} : {err}")
-        return SentenceParseError(original_sentence=sentence, occurrences=occurrences, err=err)
+        print(f"[ERR] {original_sentence} : {err}")
+        return SentenceParseError(original_sentence=original_sentence, occurrences=occurrences, err=err)
 
-    match = helpers.confined_x_y_re.search(sentence)
+    match = helpers.confined_x_y_re.search(safe_sentence)
     if not match:
         return error("Found multiple units, didn't fit Confined X; Y format")
 
@@ -146,7 +146,7 @@ def parse_confined_x_y_sentence(sentence: str, occurrences: int, helpers: Helper
     approx_months = helpers.unit_to_month[phrase_unit] * phrase_num
 
     return ParsedSentence(
-        original_sentence=sentence,
+        original_sentence=original_sentence,
         occurrences=occurrences,
 
         extracted_phrase=extracted_phrase,
@@ -158,25 +158,28 @@ def parse_confined_x_y_sentence(sentence: str, occurrences: int, helpers: Helper
 # Parse a single sentence.
 # If we could successfully identify a single length (e.g. "twenty-eight years") returns a ParsedSentence
 # else returns a SentenceParseError with more details
-def parse_sentence(sentence: str, occurrences: int, helpers: Helpers) -> ParsedSentenceResult:
+def parse_sentence(original_sentence: str, occurrences: int, helpers: Helpers) -> ParsedSentenceResult:
+    # Replace non-alphanumeric and non-whitespace with a single space
+    safe_sentence = re.sub(r'[^\w\s]', ' ', original_sentence)
+
     # Helper function for returning errors
     def error(err: str) -> SentenceParseError:
-        print(f"[ERR] {sentence} : {err}")
-        return SentenceParseError(original_sentence=sentence, occurrences=occurrences, err=err)
+        print(f"[ERR] {original_sentence} : {err}")
+        return SentenceParseError(original_sentence=original_sentence, occurrences=occurrences, err=err)
 
     # Try to find a unit
     # if we find 0 or 2+ units, reject
-    units = helpers.unit_re.findall(sentence)
+    units = helpers.unit_re.findall(safe_sentence)
     if not units:
         return error(f"Found no units")
     if len(units) > 1:
-        if sentence.lower().startswith("confined"):
-            return parse_confined_x_y_sentence(sentence, occurrences, helpers)
+        if safe_sentence.lower().startswith("confined"):
+            return parse_confined_x_y_sentence(original_sentence, safe_sentence, occurrences, helpers)
         return error(f"Found multiple units {units}, parse would be ambiguous")
 
     # There is exactly one unit
     # Match against a stringified number
-    match = helpers.num_unit_re.search(sentence)
+    match = helpers.num_unit_re.search(safe_sentence)
     if not match:
         return error(f"Found single unit {units} but couldn't match with a number")
     
@@ -186,7 +189,7 @@ def parse_sentence(sentence: str, occurrences: int, helpers: Helpers) -> ParsedS
     approx_months = helpers.unit_to_month[phrase_unit] * phrase_num
 
     return ParsedSentence(
-        original_sentence=sentence,
+        original_sentence=original_sentence,
         occurrences=occurrences,
 
         extracted_phrase=extracted_phrase,
