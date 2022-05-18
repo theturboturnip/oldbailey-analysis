@@ -1,7 +1,7 @@
 import argparse
 from dataclasses import dataclass
 from itertools import groupby
-from typing import DefaultDict, Dict, List, Optional, Tuple
+from typing import DefaultDict, Dict, List, Optional, Set, Tuple
 from collections import Counter, defaultdict
 import liboldbailey.process
 
@@ -15,6 +15,7 @@ class OffenceSummary:
     verdicts: 'Counter[CategorySubcategory]'
     numerical_values: List[int]
     punishments: 'Counter[CategorySubcategory]'
+    unique_victims: Set[str]
 
 def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], writer: pd.ExcelWriter, stats: List[Tuple[str, int]], category_on_one_row: bool = True):
     # Based on https://datascience.stackexchange.com/a/46451
@@ -54,10 +55,12 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
             worksheet.write_number(current_start_row + 3, current_column + 1, offence_summary.verdict_categories['notGuilty'])
             worksheet.write_string(current_start_row + 4, current_column + 0, "Misc Verdicts: ")
             worksheet.write_number(current_start_row + 4, current_column + 1, offence_summary.verdict_categories['miscVerdict'])
+            worksheet.write_string(current_start_row + 5, current_column + 0, "No. Unique Victims: ")
+            worksheet.write_number(current_start_row + 5, current_column + 1, len(offence_summary.unique_victims))
 
             # Write the full verdict breakdown
             # Start one row ahead, so we can write the table headers in
-            verdict_row = current_start_row + 6
+            verdict_row = current_start_row + 7
             for verdict, n in offence_summary.verdicts.most_common():
                 worksheet.write_string(verdict_row, current_column + 0, verdict[0])
                 worksheet.write_string(verdict_row, current_column + 1, str(verdict[1]))
@@ -65,7 +68,7 @@ def write_summary_sheet(summaries: Dict[CategorySubcategory, OffenceSummary], wr
                 verdict_row += 1
             # Make it a table
             worksheet.add_table(
-                current_start_row + 5, current_column + 0,
+                current_start_row + 6, current_column + 0,
                 verdict_row, current_column + 2,
                 {
                     'columns': [{'header': "Category"}, {'header': "Subcategory"}, {'header': "Count"}]
@@ -152,6 +155,7 @@ def main():
     p.add_argument("--max_year", type=int, default=1913)
     p.add_argument("--occupation_csv", type=str)
     p.add_argument("--output_excel", type=str)
+    p.add_argument("--one_punishment_in_all", action="store_true")
 
     args = p.parse_args()
 
@@ -173,7 +177,8 @@ def main():
                 verdict_categories = Counter(),
                 verdicts = Counter(),
                 numerical_values = [],
-                punishments = Counter()
+                punishments = Counter(),
+                unique_victims = set(),
             )
         )
     offence_full_infos: Dict[CategorySubcategory, pd.DataFrame] = \
@@ -229,6 +234,7 @@ def main():
                         f"victimGender{i}": v.gender
                         for i, v in enumerate(offence.victims)
                     })
+
                     verdict_df = pd.DataFrame(info_dict)
                     for person in charge.defendant:
                         person_df = pd.DataFrame({
@@ -257,6 +263,8 @@ def main():
                                 for p in trial.punishments.values()
                                 if person in p.defendants
                             ]
+                            if args.one_punishment_in_all and punishments:
+                                punishments = punishments[0:1]
                         else:
                             # Add an empty punishment, otherwise the join won't produce results
                             punishments = [liboldbailey.process.Punishment(
@@ -283,6 +291,9 @@ def main():
 
                     # Generate summary
                     offence_summary = offence_summaries[offence_key]
+                    # Update the unique victims
+                    offence_summary.unique_victims.update([v.id for v in offence.victims])
+
                     # count verdicts for each punishment for each defendant, so the summary is consistent with the columns in offence_full_infos.
                     # COUNTIF(<verdict_column>, "guilty") should be == summary.guiltyverdicts
                     for person in charge.defendant:
@@ -319,6 +330,8 @@ def main():
         print("Punishments (guilty verdicts only)")
         for punishment, n in offence_stat.punishments.most_common():
             print(f"\t{n}\t|\t{punishment}")
+        print("Number of unique victims involved in charges of this type")
+        print(f"\t{len(offence_stat.unique_victims)}")
     # done
 
     # Create excel sheet if requested
